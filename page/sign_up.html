@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
@@ -13,10 +19,59 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/sign_up.css" />
     <title>Document</title>
-</head>
-<body>
-    hello
-</body>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form">
+        <div class="logo">
+          <img src="../assets/image/logo.png" alt="logo" />
+        </div>
+        <h1>Please sign up</h1>
+        <input
+          id="email"
+          class="text text1"
+          type="email"
+          placeholder="Email address"
+        />
+        <input
+          id="userName"
+          class="text text3"
+          type="text"
+          placeholder="Username"
+        />
+        <input
+          id="pass"
+          class="text text2"
+          type="password"
+          placeholder="Password"
+        />
+
+        <p id="note" class="notice">Already have an account,</p>
+        <p class="link"><a href="./sign_in.html">click here !</a></p>
+        <button onclick="signUp()">Sign up</button>
+        <p class="company">&copy;2025 - Rikkei Education</p>
+      </div>
+      <div id="error" class="error hide">
+        <div class="content">
+          <div class="head">
+            <i class="fa-solid fa-circle-minus"></i>
+            <span class="icon1">Error</span>
+            <span class="closeBtn"><i class="fa-solid fa-xmark"></i></span>
+          </div>
+          <div id="existing" class="body">
+            <p>Password cannot be empty</p>
+            <p>Email cannot be empty</p>
+          </div>
+        </div>
+      </div>
+      <div id="success" class="success hide">
+        <span><i class="fa-solid fa-circle-check"></i>Sign up successful</span>
+      </div>
+    </div>
+    <script src="../js/script.js"></script>
+    <script src="../js/utils.js"></script>
+  </body>
 </html>

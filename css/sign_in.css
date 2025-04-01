@@ -5,7 +5,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,7 +19,6 @@ img {
   height: 100%;
 }
 .form {
-
   width: 298px;
   height: 441.14px;
   display: flex;
@@ -38,21 +36,24 @@ h1 {
   vertical-align: middle;
 }
 input.text {
+  padding-left:10px;
+  padding-right: 10px;
   width: 296px;
   height: 56px;
   border: 1px solid #dee2e6;
 }
-input.text::placeholder{
-    color: black;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    position: absolute;
-    top: 19px;
-    left: 13px;
-    vertical-align: middle;
+input.text::placeholder {
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  position: absolute;
+  top: 19px;
+  left: 13px;
+  vertical-align: middle;
 }
 input.text1 {
+  
   border-radius: 6px 6px 0px 0px;
   position: absolute;
   left: 1px;
@@ -64,39 +65,39 @@ input.text2 {
   left: 1px;
   top: 173px;
 }
-label{
-    position: absolute;
-    top: 247px;
-    left: 1px;
+label {
+  position: absolute;
+  top: 247px;
+  left: 1px;
 }
-input{
-    vertical-align: middle;
+input {
+  vertical-align: middle;
 }
-span{
-    width: 200px;
-    vertical-align: middle  ;
-    position: absolute;
-    left: 24px;
-    top: 1px;
+.form span {
+  width: 200px;
+  vertical-align: middle;
+  position: absolute;
+  left: 24px;
+  top: 1px;
 }
-.notice{
-   font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    position: absolute;
-    top: 287px;
-    left: 1px;
+.notice {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  position: absolute;
+  top: 287px;
+  left: 1px;
 }
-.link{
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    position: absolute;
-    top: 287px;
-    left: 170px;;
+.link {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  position: absolute;
+  top: 287px;
+  left: 170px;
 }
-a{
-    color:#0D6EFD;
+a {
+  color: #0d6efd;
 }
 button {
   width: 298px;
@@ -112,12 +113,319 @@ button {
   position: absolute;
   top: 278px;
 }
-.company{
+button:hover {
+  background-color: #0b5ed7;
+  cursor: pointer;
+}
+button:active {
+  outline: none;
+  background-color: #0d6efd;
+  transform: scale(0.95);
+}
+.company {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  position: absolute;
+  top: 417px;
+  left: 1px;
+  color: #212529bf;
+}
+.error {
+  
+  width: 299px;
+  height: 106px;
+  background-color: #ffe5e8;
+  border-radius: 10px;
+  position: absolute;
+  top: 22px;
+  left: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.error .content {
+
+  width: 267px;
+  height: 74px;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+.error .content .head {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+}
+.error .content .head .fa-circle-minus {
+  color: #e8132a;
+}
+.error .content .head .fa-circle-xmark {
+  color: #ffffff59;
+}
+.error .content .head .closeBtn {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 24px;
+  height: 24px;
+  background-color: #ffffff59;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.error .content .head .closeBtn:hover {
+  background-color: #ffffff;
+  cursor: pointer;
+}
+.error .content .head .closeBtn:active{
+    background-color: #ffffff59;
+    transform: scale(0.95);
+}
+.error .content .body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 20px;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: #000000;
+}
+.success {
+  width: 299px;
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e5fff0;
+  position: absolute;
+  top: 148px;
+  left: 26px;
+  border-radius: 10px;
+}
+.success .fa-circle-check {
+  color: #02ee6a;
+  scale: 1.5;
+  margin-right: 15px;
+  margin-left: -90px;
+}
+.hide{
+  display: none;
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    width: 576px;
+    height: 670px;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo {
+    margin-left: 74px;
+    width: 150px;
+    height: 42.55px;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  .form {
+
+    width: 298px;
+    height: 441.14px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 106.43px;
+    left: 138px;
+  }
+  h1 {
+    position: absolute;
+    top: 66.55px;
+    font-size: 26.58px;
+    line-height: 33.6px;
+    font-weight: 400;
+    vertical-align: middle;
+  }
+  input.text {
+    padding-left:10px;
+  padding-right: 10px;
+    width: 296px;
+    height: 56px;
+    border: 1px solid #dee2e6;
+  }
+  input.text::placeholder {
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    position: absolute;
+    top: 19px;
+    left: 13px;
+    vertical-align: middle;
+  }
+  input.text1 {
+    border-radius: 6px 6px 0px 0px;
+    position: absolute;
+    left: 1px;
+    top: 117px;
+  }
+  input.text2 {
+    border-radius: 0px 0px 6px 6px;
+    position: absolute;
+    left: 1px;
+    top: 173px;
+  }
+  label {
+    position: absolute;
+    top: 247px;
+    left: 1px;
+  }
+  input {
+    vertical-align: middle;
+  }
+  .form span {
+    width: 200px;
+    vertical-align: middle;
+    position: absolute;
+    left: 24px;
+    top: 1px;
+  }
+  .notice {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    position: absolute;
+    top: 287px;
+    left: 1px;
+  }
+  .link {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    position: absolute;
+    top: 287px;
+    left: 170px;
+  }
+  a {
+    color: #0d6efd;
+  }
+  button {
+    width: 298px;
+    height: 42px;
+    background-color: #0d6efd;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-top: 50px;
+    position: absolute;
+    top: 278px;
+  }
+  button:hover {
+    background-color: #0b5ed7;
+    cursor: pointer;
+  }
+  button:active {
+    outline: none;
+    background-color: #0d6efd;
+    transform: scale(0.95);
+  }
+  .company {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
     position: absolute;
     top: 417px;
     left: 1px;
-    color: #212529BF;
+    color: #212529bf;
+  }
+  /* .error {
+    width: 299px;
+    height: 106px;
+    background-color: #ffe5e8;
+    border-radius: 10px;
+    position: absolute;
+    top: 22px;
+    left: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .error .content {
+    width: 267px;
+    height: 74px;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+  }
+  .error .content .head {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+  }
+  .error .content .head .fa-circle-minus {
+    color: #e8132a;
+  }
+  .error .content .head .fa-circle-xmark {
+    color: #ffffff59;
+  }
+  .error .content .head .closeBtn {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 24px;
+    height: 24px;
+    background-color: #ffffff59;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  .error .content .body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20px;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #000000;
+  }
+  .success {
+    width: 299px;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e5fff0;
+    position: absolute;
+    top: 148px;
+    left: 26px;
+    border-radius: 10px;
+  }
+  .success .fa-circle-check {
+    color: #02ee6a;
+    scale: 1.5;
+    margin-right: 15px;
+    margin-left: -90px;
+  } */
 }

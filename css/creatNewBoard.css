@@ -1,0 +1,237 @@
+.container {
+  width: 498px;
+  height: 514   px;
+  position: absolute;
+ 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.head {
+  width: 498px;
+  height: 63px;
+  border-radius: 7px 7px 0px 0px;
+  border: 1px solid #dee2e6;
+
+}
+.head h1 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #212529;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+.head .fa-xmark {
+  position: absolute;
+  top: 25px;
+  left: 458px;
+  scale: 2;
+  opacity: 50%;
+}
+.body{
+    margin-top: -1px;
+    width: 498px;
+    height: 380px;
+      border: 1px solid #dee2e6;
+}
+.body .title1 {
+  width: 108px;
+  height: 24px;
+  position: absolute;
+  top: 79px;
+  left: 16px;
+  color: #212529;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+.body img {
+  width: 108px;
+  height: 60px;
+  position: absolute;
+  top: 111px;
+  left: 20px;
+  border-radius: 5px;
+}
+.body .item2 {
+  left: 136px;
+}
+
+.body .item3 {
+  left: 253px;
+}
+.body .item4 {
+  left: 369px;
+}
+.body .fa-circle-check {
+  color: #ffffff;
+  position: absolute;
+  top: 135px;
+  left: 66px;
+}
+.body .icon2 {
+  left: 183px;
+}
+.body .icon3 {
+  left: 300px;
+}
+.body .icon4 {
+  left: 416px;
+}
+.body .stick1 {
+  width: 466px;
+  height: 1px;
+  border-top: 1px solid #212529;
+  opacity: 25%;
+  position: absolute;
+  top: 187px;
+  left: 16px;
+}
+.body .title2 {
+  width: 48px;
+  height: 24px;
+  position: absolute;
+  top: 204px;
+  left: 16px;
+  color: #212529;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+.body .color {
+  width: 70px;
+  height: 40px;
+  position: absolute;
+  top: 236px;
+  left: 20px;
+  background-color: #dc3545;
+  border-radius: 5px;
+}
+.body .color .fa-circle-check {
+  position: absolute;
+  top: 14px;
+  left: 28px;
+}
+.body .color1 {
+  background: linear-gradient(to bottom right, #ffb100, #fa0c00);
+}
+.body .color2 {
+  background: linear-gradient(to bottom right, #2609ff, #d20cff);
+  left: 97px;
+}
+.body .color3 {
+  background: linear-gradient(to bottom right, #00ff2f, #00ffc8);
+  left: 175px;
+}
+.body .color4 {
+  background: linear-gradient(to bottom right, #00ffe5, #004bfa);
+  left: 253px;
+}
+.body .color5 {
+  background: linear-gradient(to bottom right, #ffa200, #edfa00);
+
+  left: 330px;
+}
+.body .color6 {
+  background: linear-gradient(to bottom right, #ff00ea, #fa0c00);
+
+  left: 408px;
+}
+.body .stick2 {
+  width: 466px;
+  height: 1px;
+  border-top: 1px solid #212529;
+  opacity: 25%;
+  position: absolute;
+  top: 292px;
+  left: 16px;
+}
+.body .title3 {
+  width: 100px;
+  height: 24px;
+  position: absolute;
+  top: 309px;
+  left: 16px;
+  color: #212529;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+.body input {
+  width: 464px;
+  height: 56px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  position: absolute;
+  top: 342px;
+  left: 17px;
+  padding-left: 10px;
+padding-right: 10px;
+}
+.body input::placeholder{
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+color: #212529;
+padding-left: 10px;
+padding-right: 10px;
+}
+.body span {
+  position: absolute;
+  top: 313px;
+  left: 114px;
+  font-style: italic;
+  color: #dc3545;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+}
+.body .notice{
+    width: 260px;
+    height: 24px;
+    font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+    position: absolute;top: 403px;left: 16px;
+}
+.foot{
+    width: 498px;
+    height: 71px;
+    position: absolute;
+    top: 441px;
+    border-radius: 0px 0px 7px 7px;
+    border: 1px solid #DEE2E6;
+}
+.foot .button1{
+width: 67px;
+height: 38px;
+border: 1px solid #DC3545;
+border-radius: 6px;
+background-color: white;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+color: #DC3545;
+position: absolute;
+top: 17px;
+left: 332px;
+}
+.foot .button2{
+width: 74px;
+height: 38px;
+border: 1px solid #0D6EFD;
+border-radius: 6px;
+background-color: white;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+color: #0D6EFD;
+position: absolute;
+top: 17px;
+left: 407px;
+}

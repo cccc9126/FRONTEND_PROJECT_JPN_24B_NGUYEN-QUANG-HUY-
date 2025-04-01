@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
@@ -16,31 +22,54 @@
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/sign_in.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="form">
-            <div class="logo">
-                <img src="../assets/image/logo.png" alt="logo" >
-            </div>
-            <h1>Please sign in</h1>
-            <input class="text text1" type="text" placeholder="Email address">
-            <input class="text text2" type="text" placeholder="Password">
-            <label for="">
-                <input type="checkbox" name="" id="" ><span>Remember me</span>
-            </label>
-            <p class="notice">Don't have an account,</p><span class="link"><a href="./sign_up.html">click here !</a></span>
-            <button>Sign in</button>
-            <p class="company">&copy;2025 - Rikkei Education</p>
+      <div class="form">
+        <div class="logo">
+          <img src="../assets/image/logo.png" alt="logo" />
         </div>
-        <div class="error">
-            <span><i class="fa-solid fa-circle-minus"></i>Error</span>
-            <span>Mật khẩu không được bỏ trống</span>
-            <span>Email không được bỏ trống</span>
+        <h1>Please sign in</h1>
+        <input
+          id="email"
+          class="text text1"
+          type="email"
+          placeholder="Email address"
+        />
+        <input
+          id="pass"
+          class="text text2"
+          type="password"
+          placeholder="Password"
+        />
+        <label>
+          <input type="checkbox" name="" id="" /><span>Remember me</span>
+        </label>
+        <p class="notice">Don't have an account,</p>
+        <p class="link"><a href="./sign_up.html">click here !</a></p>
+        <button onclick="signIn()">Sign in</button>
+        <p class="company">&copy;2025 - Rikkei Education</p>
+      </div>
+      <div id="error" class="error hide">
+        <div class="content">
+          <div class="head">
+            <i class="fa-solid fa-circle-minus"></i>
+            <span class="icon1">Error</span>
+            <span class="closeBtn"><i class="fa-solid fa-xmark"></i></span>
+          </div>
+          <div id="existing" class="body">
+            <p>Password cannot be empty</p>
+            <p>Email cannot be empty</p>
+          </div>
         </div>
-        <div class="success">
-            <span><i class="fa-solid fa-circle-check"></i>Đăng nhập thành công</span>
-        </div>
+      </div>
+      <div id="success" class="success hide">
+        <span
+          ><i class="fa-solid fa-circle-check"></i>Sign in successful</span
+        >
+      </div>
     </div>
-</body>
+    <script src="../js/script.js"></script>
+    <script src="../js/utils.js"></script>
+  </body>
 </html>
