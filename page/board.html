@@ -25,13 +25,13 @@
             <img src="../assets/image/logo.dashBoard.png" alt="logo" />
           </div>
           <i class="fa-solid fa-magnifying-glass"></i>
-          <i class="fa-solid fa-bars"></i>
+          <i onclick="openMenuDashboard()" class="fa-solid fa-bars"></i>
         </div>
       </div>
       <div class="body">
-        <div class="option">
+        <div id="option" class="option">
           <img src="../assets/image/logo.dashBoard.png" alt="logo" />
-          <i class="fa-solid fa-xmark"></i>
+          <i onclick="closeMenuDashboard()" class="fa-solid fa-xmark"></i>
           <h6>YOUR WORKSPACES</h6>
           <div class="option1">
             <a href="http://"
@@ -51,6 +51,11 @@
           <div class="option2">
             <p>Your boards</p>
             <i class="fa-solid fa-plus"></i>
+            <ul>
+              <li>123153415</li>
+              <li>123153415</li>
+              <li>123153415</li>
+            </ul>
           </div>
         </div>
         <div class="content">
@@ -114,5 +119,8 @@
         </div>
       </div>
     </div>
+    <script src="../js/utils.js"></script>
+    <script src="../js/script.js"></script>
+
   </body>
 </html>

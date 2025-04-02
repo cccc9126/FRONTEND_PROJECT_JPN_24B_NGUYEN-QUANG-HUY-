@@ -174,7 +174,6 @@ img {
   position: absolute;
   left: 24px;
   top: 364px;
-
   border-bottom: 1px solid #dee2e6;
 }
 .body .content .favourite span {
@@ -212,23 +211,23 @@ img {
   line-height: 24px;
   color: #ffffff;
 }
-.body .content .list1 .newBoard{
+.body .content .list1 .newBoard {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #F1F2F4;
+  background-color: #f1f2f4;
 }
-.body .content .list1 .newBoard button{
-    width: 155px;
-    height: 38px;
-    border: 1px solid #6C757D;
-    border-radius: 6px;
-    background-color: #F1F2F4;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #6C757D;
-   }
+.body .content .list1 .newBoard button {
+  width: 155px;
+  height: 38px;
+  border: 1px solid #6c757d;
+  border-radius: 6px;
+  background-color: #f1f2f4;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #6c757d;
+}
 .body .content .list2 {
   width: 1125px;
   height: 150px;
@@ -254,7 +253,9 @@ img {
   line-height: 24px;
   color: #ffffff;
 }
-
+.hide{
+  display: flex;
+}
 @media screen and (max-width: 576px) {
   .container {
     width: 576px;
@@ -420,12 +421,12 @@ img {
     line-height: 24px;
     color: #ffffff;
   }
-   .body .content .list1 .newBoard .border{
+  .body .content .list1 .newBoard .border {
     width: 155px;
     height: 38px;
-    border: 1px solid #6C757D;
-   }
-   
+    border: 1px solid #6c757d;
+  }
+
   .body .content .list2 {
     width: 556px;
     height: 150px;
@@ -452,7 +453,6 @@ img {
     color: #ffffff;
   }
   .body .option {
-    
     z-index: 2;
     width: 399px;
     height: 1048px;
@@ -468,7 +468,7 @@ img {
   .body .option .fa-xmark {
     scale: 1.5;
     display: flex;
-    color:#000000;
+    color: #000000;
     position: absolute;
     top: 20px;
     right: 40px;
@@ -530,5 +530,8 @@ img {
     position: absolute;
     top: 245px;
     margin-left: 0px;
+  }
+  .hide{
+    display: none;
   }
 }

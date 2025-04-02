@@ -121,3 +121,19 @@ function signIn() {
 function createNewBoard() {
   window.location = "./creatNewBoard.html";
 }
+function openBoard() {
+  window.location = "./board.html";
+}
+function backDashBoard() {
+  window.location = "./dashBoard.html";
+}
+function closeMenuDashboard() {
+  let option = document.getElementById("option");
+  option.classList.add("hide");
+ 
+}
+function openMenuDashboard() {
+  let option = document.getElementById("option");
+  option.classList.remove("hide");
+
+}

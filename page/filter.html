@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/filter.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="head">
+        <h2>Filter</h2>
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+      <div class="body">
+        <label class="title1" for="">Keyword</label>
+        <input type="text">
+        <p>Search cards,</p>
+        <label class="title2" for="">Card status</label>
+        <div class="status">
+            <input type="checkbox"> <span>Marked as compelete</span>
+            <input type="checkbox"> <span>Not marked as complete</span>
+        </div>
+        <label class="title3" for="">Due date</label>
+        <div class="date">
+            <input type="checkbox"><i class="fa-solid fa-calendar-days"></i><span>No dates</span>
+            <input type="checkbox"><div class="clock"><i class="fa-solid fa-clock"></i></div><span>Overdue</span>
+            <input type="checkbox"><div class="clock"><i class="fa-solid fa-clock"></i></div><span>Due in the next day</span>
+        </div>
+        <label class="title4" for="">Labels</label>
+        <div class="labels">
+            <input type="checkbox"><i class="fa-solid fa-tag"></i> No labels
+            <input type="checkbox"><div class="label1"></div>
+            <input type="checkbox"><div class="label2"></div>
+            <input type="checkbox"><div class="label3"></div>
+            <input type="checkbox"><select name="" id="">
+                <option value="">Select labels</option>
+            </select>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

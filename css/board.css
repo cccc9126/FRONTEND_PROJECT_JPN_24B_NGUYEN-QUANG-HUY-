@@ -92,6 +92,10 @@ img {
   display: flex;
   flex-direction: column;
 }
+.body .option .option2 ul{
+  margin-left: 30px;
+  margin-top: 30px;
+}
 .body .option .option2 p {
   font-weight: 600;
   font-size: 14px;
@@ -187,7 +191,7 @@ img {
   line-height: 20px;
 }
 .body .content .bigList {
-  background-color: wheat;
+
   position: absolute;
   top: 100px;
   left: 264px;
@@ -345,6 +349,9 @@ img {
   margin-bottom: 50px;
   width: 470px;
 }
+.hide{
+  display: flex;
+}
 @media screen and (max-width: 576px) {
   .container {
     width: 576px;
@@ -413,7 +420,7 @@ img {
   }
 
   .body .option {
-    display: none;
+   /*  display: none; */
     z-index: 2;
     width: 399px;
     height: 1048px;
@@ -527,7 +534,7 @@ img {
     backdrop-filter: blur(4px);
   }
   .body .content .filter .title {
-    width: 710px;
+    width: 576px;
     height: 32px;
     position: absolute;
     top: 12px;
@@ -577,7 +584,6 @@ img {
     line-height: 20px;
   }
   .body .content .bigList {
-    background-color: wheat;
     position: absolute;
     top: 110px;
     left: 40px;
@@ -722,5 +728,8 @@ img {
     margin-top: 50px;
     margin-bottom: 50px;
     width: 470px;
+  }
+  .hide{
+    display: none;
   }
 }
