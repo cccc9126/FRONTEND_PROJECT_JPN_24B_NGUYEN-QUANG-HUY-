@@ -216,6 +216,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #F1F2F4;
 }
 .body .content .list1 .newBoard button{
     width: 155px;
@@ -451,6 +452,7 @@ img {
     color: #ffffff;
   }
   .body .option {
+    
     z-index: 2;
     width: 399px;
     height: 1048px;
@@ -469,7 +471,7 @@ img {
     color:#000000;
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: 40px;
     opacity: 50%;
   }
   .body img {

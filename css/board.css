@@ -92,6 +92,20 @@ img {
   display: flex;
   flex-direction: column;
 }
+.body .option .option2 p {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: #172b4d;
+  position: absolute;
+  left: 12px;
+}
+.body .option .option2 .fa-plus {
+  color: #172b4d;
+  position: absolute;
+  top: 4px;
+  left: 210px;
+}
 .body .option a {
   width: 238px;
   height: 40px;
@@ -172,14 +186,23 @@ img {
   font-size: 14px;
   line-height: 20px;
 }
+.body .content .bigList {
+  background-color: wheat;
+  position: absolute;
+  top: 100px;
+  left: 264px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: flex-start;
+}
 .body .content .list1 {
+  flex-grow: 1;
   width: 272px;
-  height: 310px;
+  height: auto;
   border: none;
   border-radius: 12px;
-  position: absolute;
-  left: 264px;
-  top: 101px;
+  position: relative;
   background-color: #f1f2f4;
   box-shadow: 0 0 1px 0 #091e424f;
   box-shadow: 0 1px 1px 0 #091e4240;
@@ -207,14 +230,34 @@ img {
   left: 232px;
   color: #626f86;
 }
+.body .content .list1 span {
+  color: #44546f;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  bottom: 10px;
+  position: absolute;
+  left: 35px;
+}
+.body .content .list1 .fa-plus {
+  color: #44546f;
+  bottom: 13px;
+  position: absolute;
+  left: 15px;
+}
+.body .content .list1 .fa-pager {
+  color: #626f86;
+  bottom: 13px;
+  position: absolute;
+  left: 240px;
+}
 .body .content .list2 {
+  flex-grow: 1;
   width: 272px;
-  height: 88px;
+  height: auto;
   border: none;
   border-radius: 12px;
-  position: absolute;
-  left: 553px;
-  top: 101px;
+  position: relative;
   background-color: #f1f2f4;
   box-shadow: 0 0 1px 0 #091e424f;
   box-shadow: 0 1px 1px 0 #091e4240;
@@ -229,14 +272,47 @@ img {
   height: 17px;
   color: #172b4d;
 }
+.body .content .list2 span {
+  color: #44546f;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  bottom: 10px;
+  position: absolute;
+  left: 35px;
+}
+.body .content .list2 .fa-plus {
+  color: #44546f;
+  bottom: 13px;
+  position: absolute;
+  left: 15px;
+}
+.body .content .list2 .fa-pager {
+  color: #626f86;
+  bottom: 13px;
+  position: absolute;
+  left: 240px;
+}
+
+.body .content .list2 .fa-down-left-and-up-right-to-center {
+  position: absolute;
+  top: 15px;
+  left: 200px;
+  transform: rotate(45deg);
+  color: #626f86;
+}
+.body .content .list2 .fa-ellipsis {
+  position: absolute;
+  top: 15px;
+  left: 232px;
+  color: #626f86;
+}
 .body .content .list3 {
   width: 272px;
   height: 44px;
   border: none;
   border-radius: 12px;
-  position: absolute;
-  left: 842px;
-  top: 101px;
+  position: relative;
   background-color: #f1f2f4;
   box-shadow: 0 0 1px 0 #091e424f;
   box-shadow: 0 1px 1px 0 #091e4240;
@@ -251,24 +327,23 @@ img {
   height: 17px;
   color: #172b4d;
 }
-.body .content .list3 .fa-plus{
-    position: absolute;
+.body .content .list3 .fa-plus {
+  position: absolute;
   top: 15px;
   left: 20px;
   color: #626f86;
 }
-.body .content .list2 .fa-down-left-and-up-right-to-center {
-  position: absolute;
-  top: 15px;
-  left: 200px;
-  transform: rotate(45deg);
-  color: #626f86;
+.body .content .list1 .taskList1 {
+  margin-left: 15px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 470px;
 }
-.body .content .list2 .fa-ellipsis {
-  position: absolute;
-  top: 15px;
-  left: 232px;
-  color: #626f86;
+.body .content .list2 .taskList2 {
+  margin-left: 15px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 470px;
 }
 @media screen and (max-width: 576px) {
   .container {
@@ -338,6 +413,7 @@ img {
   }
 
   .body .option {
+    display: none;
     z-index: 2;
     width: 399px;
     height: 1048px;
@@ -415,5 +491,236 @@ img {
     position: absolute;
     top: 245px;
     margin-left: 0px;
+  }
+  .body .option .fa-xmark {
+    scale: 1.5;
+    display: flex;
+    color: #000000;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    opacity: 50%;
+  }
+  .body .option .option2 .fa-plus {
+    color: #172b4d;
+    position: absolute;
+    top: 4px;
+    left: 340px;
+  }
+  .body .content .filter .iconFilter {
+    width: 77px;
+    height: 32px;
+    position: absolute;
+    top: 20px;
+    left: 410px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .body .content .filter {
+    width: 576px;
+    height: 56px;
+    background-color: #f1f2f4;
+    position: absolute;
+    top: 12px;
+    left: 0px;
+    backdrop-filter: blur(4px);
+  }
+  .body .content .filter .title {
+    width: 710px;
+    height: 32px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+  }
+  .body .content .filter .title h1 {
+    display: inline;
+    width: 295px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 32px;
+    color: #172b4d;
+  }
+  .body .content .filter .title .fa-star {
+    position: absolute;
+    left: 300px;
+    top: 10px;
+  }
+  .body .content .filter .title button {
+    width: 85px;
+    height: 32px;
+    border-radius: 3px;
+    background-color: #00000080;
+    border: none;
+    color: white;
+    position: absolute;
+    left: 355px;
+  }
+  .body .content .filter .title .button2 {
+    width: 85px;
+    height: 32px;
+    border-radius: 3px;
+    background-color: #00000080;
+    border: none;
+    color: white;
+    position: absolute;
+    left: 450px;
+  }
+  .body .content .filter .iconFilter {
+    width: 77px;
+    height: 32px;
+    position: absolute;
+    top: 70px;
+    left: 50px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .body .content .bigList {
+    background-color: wheat;
+    position: absolute;
+    top: 110px;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .body .content .list1 {
+    width: 500px;
+    height: auto;
+    border: none;
+    border-radius: 12px;
+    background-color: #f1f2f4;
+    box-shadow: 0 0 1px 0 #091e424f;
+    box-shadow: 0 1px 1px 0 #091e4240;
+  }
+  .body .content .list1 p {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    height: 17px;
+    color: #172b4d;
+  }
+  .body .content .list1 .fa-down-left-and-up-right-to-center {
+    position: absolute;
+    top: 15px;
+    left: 420px;
+    transform: rotate(45deg);
+    color: #626f86;
+  }
+  .body .content .list1 .fa-ellipsis {
+    position: absolute;
+    top: 15px;
+    left: 460px;
+    color: #626f86;
+  }
+  .body .content .list1 span {
+    color: #44546f;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    bottom: 10px;
+    position: absolute;
+    left: 35px;
+  }
+  .body .content .list1 .fa-plus {
+    color: #44546f;
+    bottom: 13px;
+    position: absolute;
+    left: 15px;
+  }
+  .body .content .list1 .fa-pager {
+    color: #626f86;
+    bottom: 13px;
+    position: absolute;
+    left: 440px;
+  }
+  .body .content .list2 {
+    width: 500px;
+    min-height: 88px;
+    border: none;
+    border-radius: 12px;
+
+    background-color: #f1f2f4;
+    box-shadow: 0 0 1px 0 #091e424f;
+    box-shadow: 0 1px 1px 0 #091e4240;
+  }
+  .body .content .list2 p {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    height: 17px;
+    color: #172b4d;
+  }
+  .body .content .list2 span {
+    color: #44546f;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    bottom: 10px;
+    position: absolute;
+    left: 35px;
+  }
+  .body .content .list2 .fa-plus {
+    color: #44546f;
+    bottom: 13px;
+    position: absolute;
+    left: 15px;
+  }
+  .body .content .list2 .fa-pager {
+    color: #626f86;
+    bottom: 13px;
+    position: absolute;
+    left: 440px;
+  }
+  .body .content .list3 {
+    width: 500px;
+    min-height: 44px;
+    border: none;
+    border-radius: 12px;
+
+    background-color: #f1f2f4;
+    box-shadow: 0 0 1px 0 #091e424f;
+    box-shadow: 0 1px 1px 0 #091e4240;
+  }
+  .body .content .list3 p {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    position: absolute;
+    top: 12px;
+    left: 38px;
+    height: 17px;
+    color: #172b4d;
+  }
+  .body .content .list3 .fa-plus {
+    top: 15px;
+    left: 20px;
+    color: #626f86;
+  }
+  .body .content .list2 .fa-down-left-and-up-right-to-center {
+    position: absolute;
+    top: 15px;
+    left: 420px;
+    transform: rotate(45deg);
+    color: #626f86;
+  }
+  .body .content .list2 .fa-ellipsis {
+    position: absolute;
+    top: 15px;
+    left: 460px;
+    color: #626f86;
+  }
+  .body .content .list1 .taskList1 {
+    margin-left: 15px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 470px;
   }
 }
