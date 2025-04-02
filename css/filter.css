@@ -1,5 +1,5 @@
 .container {
-  width: 1440px;
+  width: 576px;
   height: 718px;
   position: absolute;
   top: 50%;
@@ -14,7 +14,7 @@
   height: 48px;
   border: none;
   border-radius: 5px 5px 0 0;
-  box-shadow: 0 4px 4px 4px #00000040;
+  box-shadow: 0 4px 4px 0px #00000040;
   display: flex;
   justify-content: center;
   position: relative;
@@ -34,11 +34,238 @@
   z-index: 1;
 }
 .body {
+  position: relative;
   z-index: 2;
   box-shadow: 0 4px 4px 0 #00000040;
-
   width: 384px;
   min-height: 683px;
   background-color: white;
 }
-.body .label
+.body .title1 {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  position: absolute;
+  top: 16px;
+  left: 12px;
+  color: #44546f;
+}
+.body .text {
+  width: 352px;
+  height: 36px;
+  position: absolute;
+  top: 40px;
+  left: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 1px #8590a2;
+  border: none;
+  border-radius: 3px;
+}
+.body p {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 14px;
+  color: #44546f;
+  position: absolute;
+  top: 84px;
+  left: 12px;
+}
+.body .title2 {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  position: absolute;
+  top: 119px;
+  left: 12px;
+  width: 69px;
+  height: 16px;
+  color: #44546f;
+}
+.body .status {
+  width: 352px;
+  height: 72px;
+  position: absolute;
+  top: 143px;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.body .status span {
+  font-weight: 400;
+  font-style: 14px;
+  line-height: 20px;
+  color: #172b4d;
+  width: 304px;
+  height: 20px;
+  position: absolute;
+  top: 8px;
+  left: 48px;
+}
+.body .status .statusText2 {
+  top: 40px;
+}
+.body .status input {
+  position: absolute;
+  top: 12px;
+  left: 8px;
+}
+.body .status .checkbox2 {
+  top: 44px;
+}
+.body .title3 {
+  width: 54px;
+  height: 16px;
+  position: absolute;
+  top: 231px;
+  left: 12px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: #44546f;
+}
+.body .date {
+  width: 352px;
+  height: 120px;
+  position: absolute;
+  top: 255px;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.body .date span {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #44546f;
+  position: absolute;
+  top: 10px;
+  left: 72px;
+}
+.body .date .dateText2 {
+  top: 50px;
+}
+.body .date .dateText3 {
+  top: 90px;
+}
+.body .date .fa-solid {
+  width: 24px;height: 24px;
+  background-color: #091E420F;
+  margin-top:-5px ;
+  margin-left: -5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 13px;
+  left: 40px;
+}
+.body .date .item1{
+  background-color:#C9372C ;
+}
+.body .date .item2{
+  background-color: #F5CD47;
+
+}
+.body .date .clock1 {
+  position: absolute;
+  color: #FFFFFF;
+  top: 40px;
+}
+.body .date .clock2 {
+  position: absolute;
+  color: #FFFFFF;
+  top: 80px;
+}
+.body .date input {
+  position: absolute;
+  left: 8px;
+  top: 14px;
+}
+.body .date .checkbox2 {
+  top: 54px;
+}
+.body .date .checkbox3 {
+  top: 94px;
+}
+.body .title4{
+  width: 39px;
+  height: 16px;
+  position: absolute;
+  top: 391px;
+  left: 12px;
+  font-weight: 600;font-size: 12px;
+  line-height: 16px;
+  color:#44546F;
+}
+.body .labels{
+  width: 352px;
+  height: 192px;
+  position: absolute;
+  top: 415px;left: 12px;
+
+}
+.body .labels input{
+  position: absolute;
+  top: 4px;
+  left: 8px;
+}
+.body .labels .checkbox2{
+  top: 35px;
+}
+.body .labels .checkbox3{
+  top: 70px;
+}
+.body .labels .checkbox4{
+  top: 105px;
+}
+.body .labels .checkbox5{
+  top: 140px;
+}
+.body .labels .fa-solid{
+    width: 24px;height: 24px;
+  background-color: #091E420F;
+  margin-top:-5px ;
+  margin-left: -5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+color: #626F86;
+  position: absolute;
+  top: 4px;
+  left: 40px;
+}
+.body .labels span{
+  font-weight: 400;
+  font-style: 14px;
+  line-height: 20;
+  color:#44546F;
+  position: absolute;
+  top: -130px;
+  left: 70px;
+}
+.body .labels select{
+  position: absolute;
+  top: 140px;
+  left: 40px;
+  border: none;
+  padding-right: 200px;
+}
+.body .labels .label{
+  width: 312px;
+  height: 30px;
+  background-color: #F5CD47;
+  position: absolute;
+  top: 27px;
+  left: 35px;
+  border-radius: 3px;
+}
+.body .labels .label2{
+  top: 62px;
+}
+.body .labels .label3{
+  top:96px;
+}
+

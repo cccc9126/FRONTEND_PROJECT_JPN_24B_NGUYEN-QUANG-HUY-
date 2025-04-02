@@ -211,6 +211,23 @@ img {
   line-height: 24px;
   color: #ffffff;
 }
+.body .content .list1 .edit{
+  background-color: #2C3E5D;
+  width: 168px;
+  height: 32px;
+  position: absolute;top: 85px;left: 15px;
+  border-radius: 3px;
+  color: white;
+  padding-top: 7px;
+  padding-left: 15px;
+ 
+}
+.body .content .list1 a{
+  color: white;
+  font-weight: 500;font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+}
 .body .content .list1 .newBoard {
   display: flex;
   justify-content: center;

@@ -48,10 +48,11 @@ img {
   width: 1440px;
   height: 670px;
   position: absolute;
-  top: 48px;
+  top: 36px;
   left: 0px;
   display: flex;
   flex-direction: row;
+  margin-left: -60px;
 }
 .body img {
   display: none;
@@ -170,6 +171,19 @@ img {
   position: absolute;
   left: 355px;
 }
+
+.body .content .filter .title a{
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: #172B4D;
+  position: absolute;
+  top: 7px;  
+  left: 570px;
+
+}
+
 .body .content .filter .title .button2 {
   width: 85px;
   height: 32px;
@@ -415,7 +429,7 @@ img {
     height: 952px;
     position: absolute;
     top: 48px;
-    left: 0px;
+    left: 40px;
     display: flex;
   }
 
@@ -732,4 +746,15 @@ img {
   .hide{
     display: none;
   }
+  .body .content .filter .title a{
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: #172B4D;
+  position: absolute;
+  top: 58px;  
+  left: 430px;
+
+}
 }
