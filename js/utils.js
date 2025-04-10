@@ -16,11 +16,6 @@ labelArr = [
     color: "#fea362",
   },
 ];
-     
-
-
-
-
 let backGroundColorIndexLabel = 0;
 let colorItems = document.getElementsByClassName("itemLabelCreate");
 let colorIcon = document.querySelectorAll(".itemLabelCreate .fa-circle-check");
@@ -69,14 +64,13 @@ function createLabel() {
 }
 function openEditLabel(index) {
   localStorage.setItem("labelIndex", index);
-  window.location="./editLabels.html"
+  window.location = "./editLabels.html";
 }
-
 
 function editLabel() {
   let index = localStorage.getItem("labelIndex");
   console.log(index);
-  
+
   const labelColors = [
     "#baf3db",
     "#f8e6a0",
@@ -102,13 +96,9 @@ function editLabel() {
     localStorage.setItem("labelArr", JSON.stringify(labelArr));
     window.location = "./labels.html";
   }
- 
-
 }
 
 function renderLabels() {
-
- 
   let listIndex = localStorage.getItem("listIndex");
   let taskIndex = localStorage.getItem("taskIndex");
   console.log(listIndex, taskIndex);
@@ -164,28 +154,27 @@ function renderLabels() {
   let boards = user.boards;
 
   const boardIndex = localStorage.getItem("boardIndex");
-  console.log(boards[boardIndex].lists[listIndex].tasks[taskIndex].tag);
-   let labelArr = JSON.parse(localStorage.getItem("labelArr")) || [];
+  let labelArr = JSON.parse(localStorage.getItem("labelArr")) || [];
 
-   let labelsList = document.getElementById("choiceLabel");
-   let labelStr = "";
+  let labelsList = document.getElementById("choiceLabel");
+  let labelStr = "";
 
-   for (let i = 0; i < labelArr.length; i++) {
-     labelStr += `
+  for (let i = 0; i < labelArr.length; i++) {
+    labelStr += `
       <div class="item">
         <input type="checkbox">
         <div style="background-color:${labelArr[i].color};" class="color1">${labelArr[i].content}</div>
         <button onclick="openEditLabel(${i})" class="btnItem"><i class="fa-solid fa-pencil"></i></button>
       </div>
     `;
-   }
-/* <a href="../page/editLabels.html">
+  }
+  /* <a href="../page/editLabels.html">
   <i class="fa-solid fa-pencil"></i>
 </a>; */
-   labelsList.innerHTML = labelStr;
-} 
+  labelsList.innerHTML = labelStr;
+}
 
-renderLabels();
+/* renderLabels(); */
 
 function saveUsers(users) {
   localStorage.setItem("users", JSON.stringify(users));
@@ -859,36 +848,39 @@ function renderDetail() {
 
   const boardIndex = localStorage.getItem("boardIndex");
   /*  console.log(boards[boardIndex].lists[listIndex].tasks[taskIndex]); */
-  console.log(boards[boardIndex].lists);
-  if (
-    boards[boardIndex].lists[listIndex].tasks[taskIndex].status == "complete"
-  ) {
-    document.getElementById("checkOn").classList.remove("hide");
-  }
-
-  let description = document.getElementById("description");
-  description.innerHTML =
-    boards[boardIndex].lists[listIndex].tasks[taskIndex].description;
-
-  let moveTask = document.getElementById("moveTask");
-  let moveTaskStr = "";
-  for (let i = 0; i < boards[boardIndex].lists.length; i++) {
+  /*  console.log(boards[boardIndex].lists); */
+  if (boards.length == 0) {
+  } else {
     if (
-      boards[boardIndex].lists[i].title !=
-      boards[boardIndex].lists[listIndex].title
+      boards[boardIndex].lists[listIndex].tasks[taskIndex].status == "complete"
     ) {
-      moveTaskStr += `
+      document.getElementById("checkOn").classList.remove("hide");
+    }
+
+    let description = document.getElementById("description");
+    description.innerHTML =
+      boards[boardIndex].lists[listIndex].tasks[taskIndex].description;
+
+    let moveTask = document.getElementById("moveTask");
+    let moveTaskStr = "";
+    for (let i = 0; i < boards[boardIndex].lists.length; i++) {
+      if (
+        boards[boardIndex].lists[i].title !=
+        boards[boardIndex].lists[listIndex].title
+      ) {
+        moveTaskStr += `
     <option value="${boards[boardIndex].lists[i].title}">${boards[boardIndex].lists[i].title}</option>
     `;
+      }
     }
-  }
-  moveTask.innerHTML =
-    `
+    moveTask.innerHTML =
+      `
     <option value="${boards[boardIndex].lists[listIndex].title}">${boards[boardIndex].lists[listIndex].title}</option>
     ` + moveTaskStr;
-  console.log(moveTask);
+    console.log(moveTask);
+  }
 }
-renderDetail();
+/* renderDetail(); */
 
 function complete() {
   let listIndex = localStorage.getItem("listIndex");
@@ -1307,27 +1299,25 @@ function addNewList() {
   let boards = user.boards;
 
   const boardIndex = localStorage.getItem("boardIndex");
-  console.log("tôi là board " + boardIndex);
-  console.log("tôi đây");
+
   let newTitle = document.getElementById("newTitle").value;
   if (newTitle.trim().length == 0) {
     document.getElementById("notice").innerHTML =
       "👋 Please provide a valid board title.";
   } else {
     document.getElementById("notice").innerHTML = "👋 Good hehee";
-  }
-  console.log(newTitle);
-  let newList = {
-    title: newTitle,
-    tasks: [],
-    created_at: new Date().toISOString(),
-  };
-  boards[boardIndex].lists.push(newList);
-  saveUsers(users);
-  console.log("add");
 
-  console.log(boards[boardIndex].lists);
-  window.location = "./board.html";
+    let newList = {
+      title: newTitle,
+      tasks: [],
+      created_at: new Date().toISOString(),
+    };
+    boards[boardIndex].lists.push(newList);
+    saveUsers(users);
+
+    console.log(boards[boardIndex].lists);
+    window.location = "./board.html";
+  }
 }
 
 function buttonAddTodo(index) {
@@ -1793,11 +1783,10 @@ function deleteBoard() {
   window.location = "./dashBoard.html";
 }
 
-/*    */
-
 function render(page = currentPage, page2 = currentPage2) {
   currentPage = page;
   currentPage2 = page2;
+  console.log(123);
 
   let users = JSON.parse(localStorage.getItem("users")) || [
     {
@@ -1991,8 +1980,6 @@ function render(page = currentPage, page2 = currentPage2) {
   console.log("tôi là board");
 }
 
-render();
-
 function changePage(page) {
   console.log("tôi là 1");
   render(page, currentPage2);
@@ -2026,3 +2013,18 @@ function nextBtn2(page2) {
     render(currentPage, page2 + 1);
   }
 }
+
+function closeThisBoard() {
+  console.log("tôi nè");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const path = window.location.pathname;
+  if (path.includes("taskDetailModal.html")) {
+    renderDetail();
+  } else if (path.includes("labels.html")) {
+    renderLabels();
+  } else {
+    render(currentPage, currentPage2);
+  }
+});
