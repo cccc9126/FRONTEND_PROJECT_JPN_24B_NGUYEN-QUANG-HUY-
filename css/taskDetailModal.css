@@ -1,0 +1,223 @@
+.container {
+  width: 768px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px 0 #626f86;
+}
+.head {
+  width: 700px;
+  height: 58px;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+
+}
+
+.head .checkOn{
+  color: green;
+  transform: scale(1.5);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  
+}
+.head .checkOff{
+  transform: scale(1.5);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  
+}
+.head p {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  position: absolute;
+  color: #172b4d;
+  top: 14px;
+  left: 60px;
+}
+.head span {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #44546f;
+  position: absolute;
+  top: 38px;
+  left: 60px;
+}
+.head select {
+  width: 105px;
+  height: 16px;
+  position: absolute;
+  top: 40px;
+  left: 100px;
+  background-color: #dcdfe4;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 16px;
+  color: #44546f;
+  font-family: "Ubuntu", sans-serif;
+}
+.head .fa-xmark{
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  scale: 1.5;
+    color: #44546f;
+
+}
+.body .left {
+  width: 552px;
+  width: 359px;
+  position: absolute;
+  top: 98px;
+  left: 16px;
+}
+.body .left .fa-bars-staggered {
+  color: #44546f;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+.body .left .title {
+  color: #172b4d;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  position: absolute;
+  left: 40px;
+}
+.body .left button {
+  width: 56px;
+  height: 32px;
+
+  background-color: #0c66e4;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  position: absolute;
+  top: 430px;
+  left: 40px;
+}
+.body .left .button2{
+    left: 110px;
+}
+
+  
+.body .right{
+    width: 168px;
+    height: 72px;
+    position: absolute;
+    top: 102px;
+    left: 584px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.body .right button{
+    height: 32px;
+    background-color: #091E420F;
+    color: #172B4D;
+    font-weight: 500;font-size: 14px;
+    line-height: 20px;
+    border-radius: 3px;
+    border: none;
+
+}
+.body .right button i{
+    margin-left: -60px;
+}
+.body .right button a{
+    text-decoration: none;
+    color: #172B4D;
+    
+}
+
+.body .right button.button3 {
+  background-color: rgb(235, 58, 58) !important;
+
+}
+.body .right .button3 a{
+  color: white !important;
+}
+.hide{
+  display: none
+}
+button:hover{
+  transform: scale(1.05);
+}
+button:active{
+  transform: scale(0.95);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@media print {
+}
+.main-container {
+	font-family: 'Lato';
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ck-content {
+	font-family: 'Lato';
+	line-height: 1.6;
+	word-break: break-word;
+}
+
+.editor-container_classic-editor .editor-container__editor {
+	min-width: 500px;
+	max-width: 500px;
+}
+.cke_editor_description {
+  margin-top: 30px!important;
+    width: 500px!important ; 
+}
+@media screen and (max-width: 576px) {
+  .container {
+    margin-left: 10px;
+    width: 576px;
+    height: 700px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
+  .head {
+    width: 576px;
+  }
+  .head .fa-xmark{
+    position: absolute;
+    left: 420px;
+  }
+  .body .left {
+    width: 576px;
+  }
+  .body .left .button2{
+    left: 110px;
+}
+.body .right {
+  position: absolute;
+  top: 550px;
+  left: 18px; 
+   
+
+}
+.body .left .button1{
+    top:550px;
+   }
+   .body .left .button2{
+    top:550px;
+   }
+}
+

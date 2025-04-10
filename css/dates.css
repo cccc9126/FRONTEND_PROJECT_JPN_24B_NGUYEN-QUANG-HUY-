@@ -1,0 +1,100 @@
+.container {
+  width: 304px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px 0 #626f86;
+}
+.head {
+  width: 304px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 600;
+  font-style: 14px;
+  line-height: 40px;
+  color: #44546f;
+}
+.head a{
+    margin-top: -7px;
+    color: #44546f;
+    height: 30px;
+    cursor: pointer;
+
+}
+.head .fa-chevron-left {
+  visibility: hidden;
+}
+.calendar-header button{
+    border: none;
+    cursor: pointer;
+    width: 30px;
+     background: transparent;
+}
+.calendar-container {
+  padding: 20px;
+  border-radius: 10px;
+
+  width: 300px;
+}
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-top: 10px;
+}
+.day {
+  padding: 10px;
+  cursor: pointer;
+}
+.day.selected {
+  background-color: blue;
+  color: white;
+  border-radius: 50%;
+}
+.date-input {
+  margin-top: 20px;
+}
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.buttons button {
+    border: none;
+  padding: 10px;
+  margin-top: 5px;
+
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.save-btn {
+  background-color: #0c66e4;
+  width: 280px;
+  color: white;
+  position: absolute;
+  left: 13px;
+  top: 490px;
+}
+.remove-btn {
+  position: absolute;
+  width: 280px;
+  top: 540px;
+  left: 13px;
+  background-color: #091e420f;
+}

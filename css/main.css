@@ -59,6 +59,11 @@ button:active {
   background-color: #0d6efd;
   transform: scale(0.95);
 }
+a{
+  text-decoration: none;
+  color: white;
+
+}
 @media screen and (max-width: 576px) {
   .container {
     width: 100%;

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/createLabels.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="head"><i onclick="backLabel()" class="fa-solid fa-chevron-left"></i>
+        <span>Create label</span>
+        <a href="../page/labels.html"><i class="fa-solid fa-xmark"></i></a>
+    </div>
+        <div class="body">
+            <label class="title1" for="">Title</label>
+            <input id="createTitleLabel" type="text">
+            <label class="title2" for="">Select a color</label>
+            <div id="labelListEdit" class="colorBoard">
+                <div class="item itemLabelCreate item1"><i class="fa-solid hideLabel fa-circle-check"></i></div>
+                <div class="item itemLabelCreate item2"><i class="fa-solid hideLabel fa-circle-check"></i></div>
+                <div class="item itemLabelCreate item3"><i class="fa-solid hideLabel fa-circle-check"></i></div>
+                <div class="item itemLabelCreate item4"><i class="fa-solid hideLabel fa-circle-check"></i></div>
+                <div class="item itemLabelCreate item5"><i class="fa-solid hideLabel fa-circle-check"></i></div>
+                <div class="item itemLabelCreate item6"><i class="fa-solid hideLabel fa-circle-check"></i></div>
+                <div class="item itemLabelCreate item7"><i class="fa-solid hideLabel fa-circle-check"></i></div>
+                <div class="item itemLabelCreate item8"><i class="fa-solid hideLabel fa-circle-check"></i></div>
+                <div class="item itemLabelCreate item9"><i class="fa-solid hideLabel fa-circle-check"></i></div>
+                <div class="item itemLabelCreate item10"><i class="fa-solid hideLabel fa-circle-check"></i></div>
+            </div>
+            <div class="stick"></div>
+            <button onclick="createLabel()">Create</button>
+            <span id="noticeCreate" class="hideLabel">Title cannot be empty 💁🏻</span>
+        </div>
+    </div>
+    <script src="../js/utils.js"></script>
+</body>
+</html>

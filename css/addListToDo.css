@@ -1,0 +1,105 @@
+.container {
+  width: 498px;
+  height: 514px;
+  position: absolute;
+ 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.head {
+  width: 498px;
+  height: 63px;
+  border-radius: 7px 7px 0px 0px;
+  border: 1px solid #dee2e6;
+
+}
+.head h1 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #212529;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+.head .fa-xmark {
+
+  position: absolute;
+  top: 25px;
+  left: 458px;
+  scale: 2;
+  opacity: 50%;
+}
+.head .fa-xmark:hover{
+  transform: scale(1.2);
+}
+.body{
+    margin-top: -1px;
+    width: 498px;
+    height: 380px;
+      border: 1px solid #dee2e6;
+      border-radius: 0px 0px 7px 7px;
+}
+.body label{
+    color: #212529;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 24px;
+  position: absolute;
+  top: 150px;
+  left: 180px;
+}
+.body input {
+  width: 464px;
+  height: 56px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  position: absolute;
+  top: 200px;
+  left: 17px;
+  padding-left: 10px;
+padding-right: 10px;
+}
+.body input::placeholder{
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+color: #212529;
+padding-left: 10px;
+padding-right: 10px;
+}
+.body button{
+width: 200px;
+height: 38px;
+border: 1px solid #0D6EFD;
+border-radius: 6px;
+background-color: white;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+color: #0D6EFD;
+position: absolute;
+top: 380px;
+left: 150px;
+}
+.body button:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.body button:active{
+  cursor: pointer;
+  transform: scale(0.95);
+}
+.body p{
+  font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+position: absolute;
+top: 260px;
+left: 30px;
+}

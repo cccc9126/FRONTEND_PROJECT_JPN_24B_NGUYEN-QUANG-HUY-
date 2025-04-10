@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/dates.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="head">
+        <i class="fa-solid fa-chevron-left"></i>
+        <span>Dates</span>
+        <a href="../page/taskDetailModal.html"><i class="fa-solid fa-xmark"></i></a>
+      </div>
+          <div class="calendar-container">
+        <div class="calendar-header">
+            <button onclick="prevMonth()"><i class="fa-solid fa-chevron-left"></i></button>
+            <span id="monthYear">Tháng 3 2025</span>
+            <button onclick="nextMonth()"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="calendar-days" id="calendarDays"></div>
+        <div class="date-input">
+            <label><input type="checkbox" id="startDateCheckbox" checked onchange="toggleStartDate()"> Start: </label>
+            <input type="text" id="selectedDate" readonly>
+        </div>
+        <div class="date-input">
+            <label><input type="checkbox" id="dueDateCheckbox" onchange="toggleDueDate()"> Due date: </label>
+            <input type="text" id="dueDate" placeholder="M/D/YYYY h:mm a" disabled>
+        </div>
+        <div class="buttons">
+            <button class="save-btn">Save</button>
+            <button class="remove-btn">Remove</button>
+        </div>
+    </div>
+    </div>
+    <script>
+        const calendarDays = document.getElementById("calendarDays");
+        const monthYear = document.getElementById("monthYear");
+        const selectedDateInput = document.getElementById("selectedDate");
+        const dueDateInput = document.getElementById("dueDate");
+        const startDateCheckbox = document.getElementById("startDateCheckbox");
+        const dueDateCheckbox = document.getElementById("dueDateCheckbox");
+        let currentDate = new Date(2025, 2, 1);
+
+        function renderCalendar() {
+            calendarDays.innerHTML = "";
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            monthYear.innerText = `Tháng ${month + 1} ${year}`;
+
+            const firstDay = new Date(year, month, 1).getDay();
+            const lastDate = new Date(year, month + 1, 0).getDate();
+
+            for (let i = 0; i < firstDay; i++) {
+                const emptyDiv = document.createElement("div");
+                calendarDays.appendChild(emptyDiv);
+            }
+            
+            for (let day = 1; day <= lastDate; day++) {
+                const dayDiv = document.createElement("div");
+                dayDiv.innerText = day;
+                dayDiv.classList.add("day");
+                dayDiv.onclick = () => selectDate(day);
+                calendarDays.appendChild(dayDiv);
+            }
+        }
+
+        function selectDate(day) {
+            const formattedDate = `${day}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+            
+            if (startDateCheckbox.checked) {
+                selectedDateInput.value = formattedDate;
+            }
+            
+            if (dueDateCheckbox.checked) {
+                dueDateInput.value = formattedDate;
+            }
+            
+            document.querySelectorAll(".day").forEach(d => d.classList.remove("selected"));
+            event.target.classList.add("selected");
+        }
+
+        function toggleStartDate() {
+            if (!startDateCheckbox.checked) {
+                selectedDateInput.value = "";
+            }
+        }
+
+        function toggleDueDate() {
+            dueDateInput.disabled = !dueDateCheckbox.checked;
+            if (!dueDateCheckbox.checked) {
+                dueDateInput.value = "";
+            }
+        }
+
+        function prevMonth() {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar();
+        }
+        
+        function nextMonth() {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar();
+        }
+
+        renderCalendar();
+    </script>
+  </body>
+</html>

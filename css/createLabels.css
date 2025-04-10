@@ -1,0 +1,194 @@
+.container {
+  width: 304px;
+  height: 315px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px 0 #626f86;
+}
+.head {
+  width: 304px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 600;
+  font-style: 14px;
+  line-height: 40px;
+  color: #44546f;
+}
+.head a{
+    cursor: pointer;
+    color: #44546f;
+
+
+}
+.body {
+  position: relative;
+  width: 304px;
+  height: 261px;
+}
+.body .title1 {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: #44546f;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+.body input {
+  padding-left: 14px;
+
+  width: 280px;
+  height: 36px;
+  position: absolute;
+  top: 36px;
+  left: 12px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px #8590a2;
+}
+.body .title2 {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: #44546f;
+  position: absolute;
+  top: 84px;
+  left: 12px;
+}
+.body .colorBoard {
+  width: 285px;
+  height: 80px;
+
+  position: absolute;
+  top: 110px;
+  left: 12px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.body .colorBoard .item {
+  width: 50px;
+  height: 32px;
+  border: none;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.body .colorBoard .item .fa-solid{
+  color: white;
+}
+
+.body .colorBoard .item1 {
+  background-color: #baf3db;
+}
+.body .colorBoard .item2 {
+  background-color: #f8e6a0;
+}
+.body .colorBoard .item3 {
+  background-color: #fedec8;
+}
+.body .colorBoard .item4 {
+  background-color: #ffd5d2;
+}
+.body .colorBoard .item5 {
+  background-color: #dfd8fd;
+}
+.body .colorBoard .item6 {
+  background-color: #4bce97;
+}
+.body .colorBoard .item7 {
+  background-color: #f5cd47;
+}
+.body .colorBoard .item8 {
+  background-color: #fea362;
+}
+.body .colorBoard .item9 {
+  background-color: #f87168;
+}
+.body .colorBoard .item10 {
+  background-color: #9f8fef;
+}
+.body .stick {
+  width: 280px;
+  height: 1px;
+  position: absolute;
+  top: 200px;
+  left: 12px;
+  background-color: #091e4224;
+}
+.body button {
+  width: 68px;
+  height: 32px;
+  border: none;
+  border-radius: 3px;
+  background-color: #0c66e4;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  position: absolute;
+  top: 217px;
+  left: 12px;
+}
+.body .btnDelete{
+ width: 68px;
+  height: 32px;
+  border: none;
+  border-radius: 3px;
+  background-color: #e42a2a;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  position: absolute;
+  top: 217px;
+  left: 225px;
+}
+button:hover{
+  transform: scale(1.05);
+}
+button:active{
+  transform: scale(0.95);
+
+}
+
+.fa-xmark:hover{
+  transform: scale(1.05);
+}
+.fa-xmark:active{
+  transform: scale(0.95);
+
+}
+.fa-chevron-left:hover{
+  transform: scale(1.05);
+}
+.fa-chevron-left  :active{
+  transform: scale(0.95);
+
+}
+
+.hideLabel{
+  display: none;
+}
+.body .colorBoard .item:hover{
+  transform: scale(1.1);
+}
+.body .colorBoard .item:active{
+  transform: scale(0.9);
+}
+.body span{
+  position: absolute;
+  top: 225px;
+  left: 100px;
+}

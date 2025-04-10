@@ -34,6 +34,9 @@
   scale: 2;
   opacity: 50%;
 }
+.head .fa-xmark:hover{
+  transform: scale(1.2);
+}
 .body{
     margin-top: -1px;
     width: 498px;
@@ -59,6 +62,23 @@
   left: 20px;
   border-radius: 5px;
 }
+.body img:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.body img:active{
+  cursor: pointer;
+  transform: scale(0.95);
+}
+.body .color:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.body .color:active{
+  cursor: pointer;
+  transform: scale(0.95);
+}
+
 .body .item2 {
   left: 136px;
 }
@@ -235,4 +255,40 @@ color: #0D6EFD;
 position: absolute;
 top: 17px;
 left: 407px;
+}
+.foot .deleteButton{
+width: 74px;
+height: 38px;
+border: 1px solid gray;
+border-radius: 6px;
+background-color: white;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+color: gray;
+position: absolute;
+top: 17px;
+left: 250px;
+}
+.foot button:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.foot button:active{
+  cursor: pointer;
+  transform: scale(0.95);
+}
+.foot a{
+
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 13px;
+  padding-right: 13px;
+  border-radius: 3px;
+  font-weight: 200;
+font-size: 16px;
+line-height: 24px;
+}
+.hide{
+  display: none;
 }
