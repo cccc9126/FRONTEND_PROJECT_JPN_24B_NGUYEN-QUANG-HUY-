@@ -65,6 +65,9 @@ img {
 .body .option .fa-xmark {
   display: none;
 }
+h6{
+  cursor: pointer;
+}
 .body .option h6 {
   width: 121px;
   height: 14px;
@@ -91,6 +94,21 @@ img {
   top: 212px;
   display: flex;
   flex-direction: column;
+}
+.body .option .option2 button{
+  color: #0d6efd;
+  background-color:rgba(248, 249, 250, 0.5) ;
+  width: 100px;
+    font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: #0d6efd;
+  margin-left: 2px;
+  border: none;
+  cursor: pointer;
+  margin-top: 3px;
+  
+
 }
 .body .option a {
   width: 238px;

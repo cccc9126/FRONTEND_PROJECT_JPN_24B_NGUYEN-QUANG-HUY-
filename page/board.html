@@ -46,7 +46,7 @@
         <div id="option" class="option hide">
           <img src="../assets/image/logo.dashBoard.png" alt="logo" />
           <i onclick="closeMenuDashboard()" class="fa-solid fa-xmark"></i>
-          <h6>YOUR WORKSPACES</h6>
+          <h6 onclick="backDashBoard()">YOUR WORKSPACES</h6>
           <div class="option1">
             <a href="./boardFilter.html"
               ><i class="fa-solid fa-list-ul"></i>&nbsp;&nbsp;&nbsp;Boards</a
@@ -93,7 +93,9 @@
               </p>
             </div>
             <div class="iconFilter">
+              <button onclick="openFilter()">
               <i class="fa-solid fa-filter"></i>&nbsp; Filters
+              </button>
             </div>
           </div>
           <div id="bigList" class="bigList">
@@ -185,7 +187,7 @@
     <script>
   document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("confirmDeleteTask").addEventListener("click", function () {
-      console.log("Xóa task ở đây nha!");
+    
       const modal = bootstrap.Modal.getInstance(document.getElementById("deleteTaskModal"));
       modal.hide();
     });

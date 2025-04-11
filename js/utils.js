@@ -30,78 +30,18 @@ for (let i = 0; i < colorItems.length; i++) {
     }
   });
 }
+console.log(localStorage.getItem("email"));
 
-function createLabel() {
-  const labelColors = [
-    "#baf3db",
-    "#f8e6a0",
-    "#fedce8",
-    "#ffd5d2",
-    "#dfd8fd",
-    "#4bce97",
-    "#f5cd47",
-    "#fea362",
-    "#f87168",
-    "#9f8fef",
-  ];
-  let value = document.getElementById("createTitleLabel").value;
 
-  if (value.trim().length == 0) {
-    document.getElementById("noticeCreate").classList.remove("hideLabel");
-  } else {
-    document.getElementById("noticeCreate").classList.add("hideLabel");
-    let newLabel = {
-      content: value,
-      color: labelColors[backGroundColorIndexLabel],
-    };
-
-    let labelArr = JSON.parse(localStorage.getItem("labelArr")) || [];
-    labelArr.push(newLabel);
-    localStorage.setItem("labelArr", JSON.stringify(labelArr));
-
-    window.location = "./labels.html";
-  }
-}
-function openEditLabel(index) {
-  localStorage.setItem("labelIndex", index);
-  window.location = "./editLabels.html";
+function saveUsers(users) {
+  localStorage.setItem("users", JSON.stringify(users));
+  console.log("saved");
 }
 
-function editLabel() {
-  let index = localStorage.getItem("labelIndex");
-  console.log(index);
-
-  const labelColors = [
-    "#baf3db",
-    "#f8e6a0",
-    "#fedce8",
-    "#ffd5d2",
-    "#dfd8fd",
-    "#4bce97",
-    "#f5cd47",
-    "#fea362",
-    "#f87168",
-    "#9f8fef",
-  ];
-  let value = document.getElementById("editTitleLabel").value;
-
-  if (value.trim().length == 0) {
-    document.getElementById("noticeEdit").classList.remove("hideLabel");
-  } else {
-    document.getElementById("noticeEdit").classList.add("hideLabel");
-    let labelArr = JSON.parse(localStorage.getItem("labelArr")) || [];
-
-    labelArr[index].content = value;
-    labelArr[index].color = labelColors[backGroundColorIndexLabel];
-    localStorage.setItem("labelArr", JSON.stringify(labelArr));
-    window.location = "./labels.html";
-  }
-}
-
-function renderLabels() {
-  let listIndex = localStorage.getItem("listIndex");
-  let taskIndex = localStorage.getItem("taskIndex");
-  console.log(listIndex, taskIndex);
+function signUp() {
+  let email = document.getElementById("email").value.trim();
+  let userName = document.getElementById("userName").value.trim();
+  let pass = document.getElementById("pass").value.trim();
   let users = JSON.parse(localStorage.getItem("users")) || [
     {
       id: 1,
@@ -146,13 +86,203 @@ function renderLabels() {
       ],
     },
   ];
-  let email = localStorage.getItem("email");
-  let user = users.find((item) => item.email === email);
-  if (!user) {
+
+  if (email.length == 0 || userName.length == 0 || pass.length == 0) {
+    errorNotice(1);
     return;
   }
-  let boards = user.boards;
+  if (email.includes("@gmail.com")) {
+    if (email.length > 10) {
+    } else {
+      errorNotice(4);
+      return;
+    }
+  } else if (email.includes("@gmail.vn")) {
+    if (email.length > 9) {
+    } else {
+      errorNotice(4);
+      return;
+    }
+  } else {
+    errorNotice(4);
+    return;
+  }
+  if (pass.length < 8) {
+    errorNotice(5);
+    return;
+  }
+  let existingUser = users.find((item) => item.email === email);
+  if (existingUser) {
+    existingNotice();
+    return;
+  }
+  let newUser = {
+    id: users.length + 1,
+    username: userName,
+    email: email,
+    password: pass,
+    created_at: new Date().toISOString(),
+    boards: [],
+  };
+  setTimeout(() => {
+    window.location = "../page/sign_in.html";
+  }, 1000);
 
+  users.push(newUser);
+  saveUsers(users);
+  successNotice();
+}
+function signIn() {
+  let email = document.getElementById("email").value.trim();
+  let pass = document.getElementById("pass").value.trim();
+  let users = JSON.parse(localStorage.getItem("users")) || [
+    {
+      id: 1,
+      username: "john_doe",
+      email: "john@example.com",
+      password: "hashed_password",
+      created_at: "2025-02-28T12:00:00Z",
+      boards: [
+        {
+          id: 101,
+          title: "Dự án Website",
+          description: "Quản lý tiến độ dự án website",
+          backdrop:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/640px-Cat_August_2010-4.jpg",
+          is_starred: true,
+          created_at: "2025-02-28T12:30:00Z",
+          lists: [
+            {
+              id: 201,
+              title: "Việc cần làm",
+              created_at: "2025-02-28T13:00:00Z",
+              tasks: [
+                {
+                  id: 301,
+                  title: "Thiết kế giao diện",
+                  description: "Tạo wireframe cho trang chủ",
+                  status: "pending",
+                  due_date: "2025-03-05T23:59:59Z",
+                  tag: [
+                    {
+                      id: 401,
+                      content: "Urgent",
+                      color: "#fff",
+                    },
+                  ],
+                  created_at: "2025-02-28T13:30:00Z",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ];
+  if (email.length == 0 || pass.length == 0) {
+    errorNotice(2);
+    return;
+  }
+  let user = users.find(
+    (item) => item.email === email && item.password === pass
+  );
+  if (user) {
+    localStorage.setItem("email", email);
+    successNotice();
+    setTimeout(() => {
+      window.location = "../page/dashBoard.html";
+    }, 1000);
+  } else {
+    errorNotice(3);
+  }
+}
+
+function createLabel() {
+  const labelColors = [
+    "#baf3db",
+    "#f8e6a0",
+    "#fedce8",
+    "#ffd5d2",
+    "#dfd8fd",
+    "#4bce97",
+    "#f5cd47",
+    "#fea362",
+    "#f87168",
+    "#9f8fef",
+  ];
+  let value = document.getElementById("createTitleLabel").value;
+
+  if (value.trim().length == 0) {
+    document.getElementById("noticeCreate").classList.remove("hideLabel");
+  } else {
+    document.getElementById("noticeCreate").classList.add("hideLabel");
+    let newLabel = {
+      content: value,
+      color: labelColors[backGroundColorIndexLabel],
+    };
+
+    let labelArr = JSON.parse(localStorage.getItem("labelArr")) || [];
+    labelArr.push(newLabel);
+    localStorage.setItem("labelArr", JSON.stringify(labelArr));
+
+    window.location = "./labels.html";
+  }
+}
+function openEditLabel(index) {
+  localStorage.setItem("labelIndex", index);
+  window.location = "./editLabels.html";
+}
+function deleteLabel() {
+  let index = localStorage.getItem("labelIndex");
+  console.log(index);
+  let labelArr = JSON.parse(localStorage.getItem("labelArr")) || [];
+  labelArr.splice(index, 1);
+  localStorage.setItem("labelArr", JSON.stringify(labelArr));
+  window.location = "./labels.html";
+}
+
+function editLabel() {
+  let index = localStorage.getItem("labelIndex");
+  console.log(index);
+
+  const labelColors = [
+    "#baf3db",
+    "#f8e6a0",
+    "#fedce8",
+    "#ffd5d2",
+    "#dfd8fd",
+    "#4bce97",
+    "#f5cd47",
+    "#fea362",
+    "#f87168",
+    "#9f8fef",
+  ];
+  let value = document.getElementById("editTitleLabel").value;
+
+  if (value.trim().length == 0) {
+    document.getElementById("noticeEdit").classList.remove("hideLabel");
+  } else {
+    document.getElementById("noticeEdit").classList.add("hideLabel");
+    let labelArr = JSON.parse(localStorage.getItem("labelArr")) || [];
+
+    labelArr[index].content = value;
+    labelArr[index].color = labelColors[backGroundColorIndexLabel];
+    localStorage.setItem("labelArr", JSON.stringify(labelArr));
+    window.location = "./labels.html";
+  }
+}
+
+function renderLabels() {
+
+  
+  let listIndex = localStorage.getItem("listIndex");
+  let taskIndex = localStorage.getItem("taskIndex");
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  let email = localStorage.getItem("email");
+  let user = users.find((item) => item.email === email);
+  if (!user) return;
+
+  let boards = user.boards;
   const boardIndex = localStorage.getItem("boardIndex");
   let labelArr = JSON.parse(localStorage.getItem("labelArr")) || [];
 
@@ -162,24 +292,51 @@ function renderLabels() {
   for (let i = 0; i < labelArr.length; i++) {
     labelStr += `
       <div class="item">
-        <input type="checkbox">
+        <input id="checkBoxLabel${i}" type="checkbox">
         <div style="background-color:${labelArr[i].color};" class="color1">${labelArr[i].content}</div>
-        <button onclick="openEditLabel(${i})" class="btnItem"><i class="fa-solid fa-pencil"></i></button>
+        <button onclick="openEditLabel(${i})" class="btnItem">
+          <i class="fa-solid fa-pencil"></i>
+        </button>
       </div>
     `;
   }
-  /* <a href="../page/editLabels.html">
-  <i class="fa-solid fa-pencil"></i>
-</a>; */
+
   labelsList.innerHTML = labelStr;
+
+
+  let task = boards[boardIndex].lists[listIndex].tasks[taskIndex];
+  if (task.tag.length === 1) {
+    let tagContent = task.tag[0].content;
+    for (let i = 0; i < labelArr.length; i++) {
+      if (labelArr[i].content === tagContent) {
+        document.getElementById(`checkBoxLabel${i}`).checked = true;
+      }
+    }
+  }
+
+  for (let i = 0; i < labelArr.length; i++) {
+    let checkbox = document.getElementById(`checkBoxLabel${i}`);
+    checkbox.addEventListener("change", function () {
+      if (checkbox.checked) {
+       
+        for (let j = 0; j < labelArr.length; j++) {
+          if (j !== i) {
+            document.getElementById(`checkBoxLabel${j}`).checked = false;
+          }
+        }
+        console.log("✅ Đã chọn:", labelArr[i]);
+        localStorage.setItem("labelTemp", JSON.stringify(labelArr[i]));
+      } else {
+        console.log("❌ Bỏ chọn:", labelArr[i]);
+      }
+    });
+  }
+
 }
 
-/* renderLabels(); */
 
-function saveUsers(users) {
-  localStorage.setItem("users", JSON.stringify(users));
-  console.log("saved");
-}
+
+
 
 function errorNotice(status) {
   let errorElement = document.getElementById("error");
@@ -347,164 +504,7 @@ function moveToSignIn() {
   ];
   window.location = "../page/sign_in.html";
 }
-function signUp() {
-  let email = document.getElementById("email").value.trim();
-  let userName = document.getElementById("userName").value.trim();
-  let pass = document.getElementById("pass").value.trim();
-  let users = JSON.parse(localStorage.getItem("users")) || [
-    {
-      id: 1,
-      username: "john_doe",
-      email: "john@example.com",
-      password: "hashed_password",
-      created_at: "2025-02-28T12:00:00Z",
-      boards: [
-        {
-          id: 101,
-          title: "Dự án Website",
-          description: "Quản lý tiến độ dự án website",
-          backdrop:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/640px-Cat_August_2010-4.jpg",
-          is_starred: true,
-          created_at: "2025-02-28T12:30:00Z",
-          lists: [
-            {
-              id: 201,
-              title: "Việc cần làm",
-              created_at: "2025-02-28T13:00:00Z",
-              tasks: [
-                {
-                  id: 301,
-                  title: "Thiết kế giao diện",
-                  description: "Tạo wireframe cho trang chủ",
-                  status: "pending",
-                  due_date: "2025-03-05T23:59:59Z",
-                  tag: [
-                    {
-                      id: 401,
-                      content: "Urgent",
-                      color: "#fff",
-                    },
-                  ],
-                  created_at: "2025-02-28T13:30:00Z",
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-  ];
 
-  if (email.length == 0 || userName.length == 0 || pass.length == 0) {
-    errorNotice(1);
-    return;
-  }
-  if (email.includes("@gmail.com")) {
-    if (email.length > 10) {
-    } else {
-      errorNotice(4);
-      return;
-    }
-  } else if (email.includes("@gmail.vn")) {
-    if (email.length > 9) {
-    } else {
-      errorNotice(4);
-      return;
-    }
-  } else {
-    errorNotice(4);
-    return;
-  }
-  if (pass.length < 8) {
-    errorNotice(5);
-    return;
-  }
-  let existingUser = users.find((item) => item.email === email);
-  if (existingUser) {
-    existingNotice();
-    return;
-  }
-  let newUser = {
-    id: users.length + 1,
-    username: userName,
-    email: email,
-    password: pass,
-    created_at: new Date().toISOString(),
-    boards: [],
-  };
-  setTimeout(() => {
-    window.location = "../page/sign_in.html";
-  }, 1000);
-
-  users.push(newUser);
-  saveUsers(users);
-  successNotice();
-}
-function signIn() {
-  let email = document.getElementById("email").value.trim();
-  let pass = document.getElementById("pass").value.trim();
-  let users = JSON.parse(localStorage.getItem("users")) || [
-    {
-      id: 1,
-      username: "john_doe",
-      email: "john@example.com",
-      password: "hashed_password",
-      created_at: "2025-02-28T12:00:00Z",
-      boards: [
-        {
-          id: 101,
-          title: "Dự án Website",
-          description: "Quản lý tiến độ dự án website",
-          backdrop:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/640px-Cat_August_2010-4.jpg",
-          is_starred: true,
-          created_at: "2025-02-28T12:30:00Z",
-          lists: [
-            {
-              id: 201,
-              title: "Việc cần làm",
-              created_at: "2025-02-28T13:00:00Z",
-              tasks: [
-                {
-                  id: 301,
-                  title: "Thiết kế giao diện",
-                  description: "Tạo wireframe cho trang chủ",
-                  status: "pending",
-                  due_date: "2025-03-05T23:59:59Z",
-                  tag: [
-                    {
-                      id: 401,
-                      content: "Urgent",
-                      color: "#fff",
-                    },
-                  ],
-                  created_at: "2025-02-28T13:30:00Z",
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-  ];
-  if (email.length == 0 || pass.length == 0) {
-    errorNotice(2);
-    return;
-  }
-  let user = users.find(
-    (item) => item.email === email && item.password === pass
-  );
-  if (user) {
-    localStorage.setItem("email", email);
-    successNotice();
-    setTimeout(() => {
-      window.location = "../page/dashBoard.html";
-    }, 1000);
-  } else {
-    errorNotice(3);
-  }
-}
 function createNewBoard() {
   window.location = "./creatNewBoard.html";
 }
@@ -515,6 +515,8 @@ function openBoard(index) {
 }
 
 function boardRender() {
+  console.log();
+  
   let users = JSON.parse(localStorage.getItem("users")) || [
     {
       id: 1,
@@ -1004,6 +1006,11 @@ function pending() {
   console.log(boards[boardIndex].lists[listIndex].tasks[taskIndex]);
 }
 
+
+
+
+
+
 function saveEditDetail() {
   let listIndex = localStorage.getItem("listIndex");
   let taskIndex = localStorage.getItem("taskIndex");
@@ -1092,12 +1099,25 @@ function saveEditDetail() {
   boards[boardIndex].lists[newIndex].tasks.push(tempTask);
   console.log(boards[boardIndex].lists[newIndex]);
   boards[boardIndex].lists[listIndex].tasks.splice(taskIndex, 1);
+  let label=JSON.parse(localStorage.getItem("labelTemp"));
+  console.log(label);
+  if (boards[boardIndex].lists[listIndex].tasks[taskIndex].tag.length == 1) {
+    boards[boardIndex].lists[listIndex].tasks[taskIndex].tag.splice(0,1,label);
+  } else if (boards[boardIndex].lists[listIndex].tasks[taskIndex].tag.length == 0) {
+    boards[boardIndex].lists[listIndex].tasks[taskIndex].tag.push(label);
+  }
+    console.log(boards[boardIndex].lists[listIndex].tasks[taskIndex]);
+  
   saveUsers(users);
 
-  /*   console.log(boards[boardIndex].lists[listIndex].tasks[taskIndex]); */
 
   renderDetail();
 }
+
+
+
+
+
 
 function openBoardDetail(index) {
   console.log("hehhe");
@@ -1244,6 +1264,7 @@ function deleteList() {
   boards[boardIndex].lists.splice(index, 1);
   saveUsers(users);
   boardRender();
+  
 }
 
 function addNewList() {
@@ -1980,6 +2001,79 @@ function render(page = currentPage, page2 = currentPage2) {
   console.log("tôi là board");
 }
 
+function closeBoardRender() {
+  console.log("hwhhw");
+  
+  let users = JSON.parse(localStorage.getItem("users")) || [
+    {
+      id: 1,
+      username: "john_doe",
+      email: "john@example.com",
+      password: "hashed_password",
+      created_at: "2025-02-28T12:00:00Z",
+      boards: [
+        {
+          id: 101,
+          title: "Dự án Website",
+          description: "Quản lý tiến độ dự án website",
+          backdrop:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/640px-Cat_August_2010-4.jpg",
+          is_starred: false, // mặc định false, sẽ set lại bên dưới
+          created_at: "2025-02-28T12:30:00Z",
+          lists: [
+            {
+              id: 201,
+              title: "Việc cần làm",
+              created_at: "2025-02-28T13:00:00Z",
+              tasks: [
+                {
+                  id: 301,
+                  title: "Thiết kế giao diện",
+                  description: "Tạo wireframe cho trang chủ",
+                  status: "pending",
+                  due_date: "2025-03-05T23:59:59Z",
+                  tag: [
+                    {
+                      id: 401,
+                      content: "Urgent",
+                      color: "#fff",
+                    },
+                  ],
+                  created_at: "2025-02-28T13:30:00Z",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ];
+
+  let email = localStorage.getItem("email");
+  console.log(email);
+  let user = users.find((item) => item.email === email);
+  if (!user) {
+    return;
+  }
+  console.log("tôi là colse");
+  
+  let boards = user.boards;
+  let str = ``;
+
+  for (let i = 0; i < boards.length; i++) {
+    if (boards[i].status == "close") {
+      str += `
+      <div onclick="openBoard(${i})" id="dashBoardItem" class="item dashBoardItem ${boards[i].backdrop}">
+              <p>${boards[i].title}</p>
+              
+            </div>
+      
+      `;
+    }
+    document.getElementById("dashBoardList3").innerHTML = str;
+  }
+}
+/* closeBoardRender(); */
 function changePage(page) {
   console.log("tôi là 1");
   render(page, currentPage2);
@@ -2014,16 +2108,230 @@ function nextBtn2(page2) {
   }
 }
 
-function closeThisBoard() {
-  console.log("tôi nè");
+function openFilter() {
+  window.location = "./filter.html";
 }
 
+function closeThisBoard() {
+  console.log("tôi nè");
+  let users = JSON.parse(localStorage.getItem("users")) || [
+    {
+      id: 1,
+      username: "john_doe",
+      email: "john@example.com",
+      password: "hashed_password",
+      created_at: "2025-02-28T12:00:00Z",
+      boards: [
+        {
+          id: 101,
+          title: "Dự án Website",
+          description: "Quản lý tiến độ dự án website",
+          backdrop:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/640px-Cat_August_2010-4.jpg",
+          is_starred: true,
+          created_at: "2025-02-28T12:30:00Z",
+          lists: [
+            {
+              id: 201,
+              title: "Việc cần làm",
+              created_at: "2025-02-28T13:00:00Z",
+              tasks: [
+                {
+                  id: 301,
+                  title: "Thiết kế giao diện",
+                  description: "Tạo wireframe cho trang chủ",
+                  status: "pending",
+                  due_date: "2025-03-05T23:59:59Z",
+                  tag: [
+                    {
+                      id: 401,
+                      content: "Urgent",
+                      color: "#fff",
+                    },
+                  ],
+                  created_at: "2025-02-28T13:30:00Z",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ];
+  let email = localStorage.getItem("email");
+  let user = users.find((item) => item.email === email);
+  if (!user) {
+    return;
+  }
+  let boards = user.boards;
+
+  let boardIndex = localStorage.getItem("boardIndex");
+  console.log(boardIndex);
+  boards[boardIndex].status = "close";
+  saveUsers(users);
+location.reload();
+}
+
+
+function dateTime() {
+  console.log("hello");
+  
+}
+
+function filterRender() {
+   let listIndex = localStorage.getItem("listIndex");
+   let taskIndex = localStorage.getItem("taskIndex");
+
+  let users = JSON.parse(localStorage.getItem("users")) || [
+    {
+      id: 1,
+      username: "john_doe",
+      email: "john@example.com",
+      password: "hashed_password",
+      created_at: "2025-02-28T12:00:00Z",
+      boards: [
+        {
+          id: 101,
+          title: "Dự án Website",
+          description: "Quản lý tiến độ dự án website",
+          backdrop:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/640px-Cat_August_2010-4.jpg",
+          is_starred: true,
+          created_at: "2025-02-28T12:30:00Z",
+          lists: [
+            {
+              id: 201,
+              title: "Việc cần làm",
+              created_at: "2025-02-28T13:00:00Z",
+              tasks: [
+                {
+                  id: 301,
+                  title: "Thiết kế giao diện",
+                  description: "Tạo wireframe cho trang chủ",
+                  status: "pending",
+                  due_date: "2025-03-05T23:59:59Z",
+                  tag: [
+                    {
+                      id: 401,
+                      content: "Urgent",
+                      color: "#fff",
+                    },
+                  ],
+                  created_at: "2025-02-28T13:30:00Z",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ];
+  let email = localStorage.getItem("email");
+  let user = users.find((item) => item.email === email);
+  if (!user) {
+    return;
+  }
+  let boards = user.boards;
+
+  const boardIndex = localStorage.getItem("boardIndex");
+ 
+
+  
+  let list4 = document.getElementById("filterLabels");
+  let str = ``;
+  for (let i = 0; i < boards[boardIndex].lists[listIndex].tasks.length;i++){
+    if (boards[boardIndex].lists[listIndex].tasks[i].tag.length == 1) {
+      str += `
+            <div style="background-color:${boards[boardIndex].lists[listIndex].tasks[i].tag[0].color};" class="label1 label"><input class="checkbox" type="checkbox"></div>
+      
+      `;
+    }
+  }
+  list4.innerHTML = str;
+  
+  
+}
+function signOut() {
+  console.log(1);
+  localStorage.removeItem("email");
+  setTimeout(() => {
+     window.location = "./sign_in.html";
+  }, 1000);
+
+  
+}
 document.addEventListener("DOMContentLoaded", function () {
   const path = window.location.pathname;
   if (path.includes("taskDetailModal.html")) {
     renderDetail();
   } else if (path.includes("labels.html")) {
     renderLabels();
+  } else if (path.includes("closedBoard.html")) {
+    if (localStorage.getItem("email") == null) {
+      window.location="./sign_in.html"
+    } else {
+      closeBoardRender();
+    }
+  } else if (path.includes("dates.html")) {
+    dateTime();
+  } else if (path.includes("filter.html")) {
+    filterRender();
+  } else if (path.includes("starredBoard.html")) {
+    if (localStorage.getItem("email") == null) {
+      window.location = "./sign_in.html";
+    } else {
+      render();
+    }
+  } else if (path.includes("boardFilter.html")) {
+    if (localStorage.getItem("email") == null) {
+      window.location = "./sign_in.html";
+    } else {
+      render()
+    }
+  } else if (path.includes("addListToDo.html")) {
+    if (localStorage.getItem("email") == null) {
+      window.location = "./sign_in.html";
+    }
+  } else if (path.includes("createLabels.html")) {
+    if (localStorage.getItem("email") == null) {
+      window.location = "./sign_in.html";
+    }
+  } else if (path.includes("createNewBoard.html")) {
+    if (localStorage.getItem("email") == null) {
+      window.location = "./sign_in.html";
+    }
+  } else if (path.includes("dates.html")) {
+    if (localStorage.getItem("email") == null) {
+      window.location = "./sign_in.html";
+    }
+  } else if (path.includes("editBoard.html")) {
+    if (localStorage.getItem("email") == null) {
+      window.location = "./sign_in.html";
+    }
+  } else if (path.includes("editLabels.html")) {
+    if (localStorage.getItem("email") == null) {
+      window.location = "./sign_in.html";
+    }
+  } else if (path.includes("filter.html")) {
+    if (localStorage.getItem("email") == null) {
+      window.location = "./sign_in.html";
+    }
+  } else if (path.includes("labels.html")) {
+    if (localStorage.getItem("email") == null) {
+      window.location = "./sign_in.html";
+    }
+  } else if (path.includes("moveCard.html")) {
+    if (localStorage.getItem("email") == null) {
+      window.location = "./sign_in.html";
+    }
+  } else if (path.includes("optionDetail.html")) {
+    if (localStorage.getItem("email") == null) {
+      window.location = "./sign_in.html";
+    }
+  } else if (path.includes("taskDetailModal.html")) {
+    if (localStorage.getItem("email") == null) {
+      window.location = "./sign_in.html";
+    }
   } else {
     render(currentPage, currentPage2);
   }

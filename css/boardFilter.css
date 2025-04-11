@@ -27,6 +27,9 @@
   position: absolute;
   top: 0;
 }
+h6:hover{
+  cursor: pointer;
+}
 .head .logo {
   position: absolute;
   top: 17px;

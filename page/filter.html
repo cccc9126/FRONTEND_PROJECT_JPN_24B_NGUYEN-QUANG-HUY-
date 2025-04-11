@@ -21,7 +21,7 @@
     <div class="container">
       <div class="head">
         <h2>Filter</h2>
-        <i class="fa-solid fa-xmark"></i>
+        <i onclick="backBoard()" class="fa-solid fa-xmark"></i>
       </div>
       <div class="body">
         <label class="title1" for="">Keyword</label>
@@ -39,16 +39,18 @@
             <input class="checkbox3"   type="checkbox"><div class="clock2"><i class="fa-solid fa-clock item2"></i></div><span class="dateText3">Due in the next day</span>
         </div>
           <label class="title4" for="">Labels</label>
-        <div class="labels">
-            <input class="checkbox1" type="checkbox"><i class="fa-solid fa-tag"></i> <span>No labels</span>
-            <input class="checkbox2" type="checkbox"><div class="label1 label"></div>
-            <input class="checkbox3" type="checkbox"><div class="label2 label"></div>
-            <input class="checkbox4" type="checkbox"><div class="label3 label"></div>
-            <input class="checkbox5" type="checkbox"><select name="" id="">
-                <option value="">Select labels</option>
-            </select>
+        <div id="filterLabels" class="labels">
+            <div  class="label1 label"><input class="checkbox" type="checkbox"></div>
+            <div class="label2 label"><input class="checkbox" type="checkbox"></div>
+            <div class="label3 label"><input class="checkbox" type="checkbox"></div>
+            <div class="label3 label"><input class="checkbox" type="checkbox"></div>
+            <div class="label3 label"><input class="checkbox" type="checkbox"></div>
+            <div class="label3 label"><input class="checkbox" type="checkbox"></div>
+            
+          
         </div>
       </div>
     </div>
+    <script src="../js/utils.js"></script>
   </body>
 </html>

@@ -212,13 +212,7 @@ img {
   width: 100% !important;
   height: 100% !important;
 }
-.body .content .list2 img {
-  border-radius: 3px;
 
-  display: block;
-  width: 100% !important;
-  height: 100% !important;
-}
 .body .content .list1 .item p {
   position: absolute;
   top: 15px;
@@ -228,19 +222,7 @@ img {
   line-height: 24px;
   color: #ffffff;
 }
-.body .content .list1 .edit {
-  background-color: #2c3e5d;
-  width: 168px;
-  height: 32px;
-  position: absolute;
-  top: 85px;
-  left: 15px;
-  border-radius: 3px;
-  color: white;
-  padding-top: 7px;
-  padding-left: 15px;
-  z-index: 4;
-}
+
 .body .content .list1 a {
   color: white;
   font-weight: 500;
@@ -252,73 +234,8 @@ img {
  padding-right: 40px;
 
  z-index: 4;
- 
 }
-.body .content .list2 a {
-  color: white;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  text-decoration: none;
-   
-}
-.body .content .list2 .edit {
-  background-color: #2c3e5d;
-  width: 168px;
-  height: 32px;
-  position: absolute;
-  top: 85px;
-  left: 15px;
-  border-radius: 3px;
-  color: white;
-  padding-top: 7px;
-  padding-left: 15px;
-  z-index: 4;
 
-}
-.body .content .list1 .newBoard {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f1f2f4;
-}
-.body .content .list1 .newBoard button {
-  width: 155px;
-  height: 38px;
-  border: 1px solid #6c757d;
-  border-radius: 6px;
-  background-color: #f1f2f4;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #6c757d;
-}
-.body .content .list2 {
-  width: 1125px;
-  height: 150px;
-  position: absolute;
-  top: 480px;
-  left: 40px;
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  position: relative;
-}
-.body .content .list2 .item {
-  position: relative;
-  width: 270px;
-  height: 130px;
-
-}
-.body .content .list2 .item p {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  font-weight: 500;
-  font-size: 15px;
-  line-height: 24px;
-  color: #ffffff;
-}
 .body .content .item .edit{
   visibility: hidden;
 }
@@ -369,6 +286,9 @@ img {
 
 
 
+}
+h6:hover{
+  cursor: pointer;
 }
 .pageDivide1{
   position: absolute;

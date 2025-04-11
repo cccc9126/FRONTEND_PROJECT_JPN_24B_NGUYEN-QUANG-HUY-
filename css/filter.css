@@ -33,12 +33,18 @@
   right: 20px;
   z-index: 1;
 }
+.head .fa-xmark:hover{
+  transform: scale(1.1);
+}
+.head .fa-xmark:active{
+  transform: scale(0.9);
+}
 .body {
   position: relative;
   z-index: 2;
   box-shadow: 0 4px 4px 0 #00000040;
   width: 384px;
-  min-height: 683px;
+ height: auto;
   background-color: white;
 }
 .body .title1 {
@@ -178,17 +184,9 @@
   color: #FFFFFF;
   top: 80px;
 }
-.body .date input {
-  position: absolute;
-  left: 8px;
-  top: 14px;
-}
-.body .date .checkbox2 {
-  top: 54px;
-}
-.body .date .checkbox3 {
-  top: 94px;
-}
+
+
+
 .body .title4{
   width: 39px;
   height: 16px;
@@ -199,30 +197,27 @@
   line-height: 16px;
   color:#44546F;
 }
+.body .labels .checkbox{
+  margin-left: -19px;
+  margin-top: 7px;
+}
 .body .labels{
+  
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
   width: 352px;
-  height: 192px;
-  position: absolute;
-  top: 415px;left: 12px;
+  min-height: 10px;
+
+ margin-top: 420px;
+ margin-left: 7px;
+ margin-bottom: 20px;
 
 }
-.body .labels input{
-  position: absolute;
-  top: 4px;
-  left: 8px;
+.body .labels .checkbox1{
+ margin-left: -326px;
 }
-.body .labels .checkbox2{
-  top: 35px;
-}
-.body .labels .checkbox3{
-  top: 70px;
-}
-.body .labels .checkbox4{
-  top: 105px;
-}
-.body .labels .checkbox5{
-  top: 140px;
-}
+
 .body .labels .fa-solid{
     width: 24px;height: 24px;
   background-color: #091E420F;
@@ -257,15 +252,13 @@ color: #626F86;
   width: 312px;
   height: 30px;
   background-color: #F5CD47;
-  position: absolute;
-  top: 27px;
-  left: 35px;
+ margin-left: 25px;
   border-radius: 3px;
 }
 .body .labels .label2{
-  top: 62px;
+
 }
 .body .labels .label3{
-  top:96px;
+
 }
 

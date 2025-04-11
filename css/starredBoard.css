@@ -10,6 +10,9 @@
   align-items: center;
   justify-content: center;
 }
+h6:hover{
+  cursor: pointer;
+}
 .head {
   z-index: 2;
   width: 1440px;
