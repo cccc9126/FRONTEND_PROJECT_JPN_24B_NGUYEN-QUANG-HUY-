@@ -32,7 +32,6 @@ for (let i = 0; i < colorItems.length; i++) {
 }
 console.log(localStorage.getItem("email"));
 
-
 function saveUsers(users) {
   localStorage.setItem("users", JSON.stringify(users));
   console.log("saved");
@@ -273,8 +272,6 @@ function editLabel() {
 }
 
 function renderLabels() {
-
-  
   let listIndex = localStorage.getItem("listIndex");
   let taskIndex = localStorage.getItem("taskIndex");
   let users = JSON.parse(localStorage.getItem("users")) || [];
@@ -303,7 +300,6 @@ function renderLabels() {
 
   labelsList.innerHTML = labelStr;
 
-
   let task = boards[boardIndex].lists[listIndex].tasks[taskIndex];
   if (task.tag.length === 1) {
     let tagContent = task.tag[0].content;
@@ -318,7 +314,6 @@ function renderLabels() {
     let checkbox = document.getElementById(`checkBoxLabel${i}`);
     checkbox.addEventListener("change", function () {
       if (checkbox.checked) {
-       
         for (let j = 0; j < labelArr.length; j++) {
           if (j !== i) {
             document.getElementById(`checkBoxLabel${j}`).checked = false;
@@ -331,12 +326,7 @@ function renderLabels() {
       }
     });
   }
-
 }
-
-
-
-
 
 function errorNotice(status) {
   let errorElement = document.getElementById("error");
@@ -516,7 +506,7 @@ function openBoard(index) {
 
 function boardRender() {
   console.log();
-  
+
   let users = JSON.parse(localStorage.getItem("users")) || [
     {
       id: 1,
@@ -1006,11 +996,6 @@ function pending() {
   console.log(boards[boardIndex].lists[listIndex].tasks[taskIndex]);
 }
 
-
-
-
-
-
 function saveEditDetail() {
   let listIndex = localStorage.getItem("listIndex");
   let taskIndex = localStorage.getItem("taskIndex");
@@ -1099,25 +1084,19 @@ function saveEditDetail() {
   boards[boardIndex].lists[newIndex].tasks.push(tempTask);
   console.log(boards[boardIndex].lists[newIndex]);
   boards[boardIndex].lists[listIndex].tasks.splice(taskIndex, 1);
-  let label=JSON.parse(localStorage.getItem("labelTemp"));
-  console.log(label);
-  if (boards[boardIndex].lists[listIndex].tasks[taskIndex].tag.length == 1) {
-    boards[boardIndex].lists[listIndex].tasks[taskIndex].tag.splice(0,1,label);
-  } else if (boards[boardIndex].lists[listIndex].tasks[taskIndex].tag.length == 0) {
-    boards[boardIndex].lists[listIndex].tasks[taskIndex].tag.push(label);
-  }
-    console.log(boards[boardIndex].lists[listIndex].tasks[taskIndex]);
-  
-  saveUsers(users);
+ let label = JSON.parse(localStorage.getItem("labelTemp"));
+ console.log(label);
+ if (tempTask.tag.length == 1) {
+   tempTask.tag.splice(0, 1, label);
+ } else if (tempTask.tag.length == 0) {
+   tempTask.tag.push(label);
+ }
+ console.log(tempTask);
 
+  saveUsers(users);
 
   renderDetail();
 }
-
-
-
-
-
 
 function openBoardDetail(index) {
   console.log("hehhe");
@@ -1264,7 +1243,6 @@ function deleteList() {
   boards[boardIndex].lists.splice(index, 1);
   saveUsers(users);
   boardRender();
-  
 }
 
 function addNewList() {
@@ -2003,7 +1981,7 @@ function render(page = currentPage, page2 = currentPage2) {
 
 function closeBoardRender() {
   console.log("hwhhw");
-  
+
   let users = JSON.parse(localStorage.getItem("users")) || [
     {
       id: 1,
@@ -2056,7 +2034,7 @@ function closeBoardRender() {
     return;
   }
   console.log("tôi là colse");
-  
+
   let boards = user.boards;
   let str = ``;
 
@@ -2169,18 +2147,16 @@ function closeThisBoard() {
   console.log(boardIndex);
   boards[boardIndex].status = "close";
   saveUsers(users);
-location.reload();
+  location.reload();
 }
-
 
 function dateTime() {
   console.log("hello");
-  
 }
 
 function filterRender() {
-   let listIndex = localStorage.getItem("listIndex");
-   let taskIndex = localStorage.getItem("taskIndex");
+  let listIndex = localStorage.getItem("listIndex");
+  let taskIndex = localStorage.getItem("taskIndex");
 
   let users = JSON.parse(localStorage.getItem("users")) || [
     {
@@ -2234,12 +2210,10 @@ function filterRender() {
   let boards = user.boards;
 
   const boardIndex = localStorage.getItem("boardIndex");
- 
 
-  
   let list4 = document.getElementById("filterLabels");
   let str = ``;
-  for (let i = 0; i < boards[boardIndex].lists[listIndex].tasks.length;i++){
+  for (let i = 0; i < boards[boardIndex].lists[listIndex].tasks.length; i++) {
     if (boards[boardIndex].lists[listIndex].tasks[i].tag.length == 1) {
       str += `
             <div style="background-color:${boards[boardIndex].lists[listIndex].tasks[i].tag[0].color};" class="label1 label"><input class="checkbox" type="checkbox"></div>
@@ -2248,27 +2222,27 @@ function filterRender() {
     }
   }
   list4.innerHTML = str;
-  
-  
 }
 function signOut() {
   console.log(1);
   localStorage.removeItem("email");
   setTimeout(() => {
-     window.location = "./sign_in.html";
-  }, 1000);
-
-  
+    window.location = "./sign_in.html";
+  }, 500);
 }
 document.addEventListener("DOMContentLoaded", function () {
   const path = window.location.pathname;
   if (path.includes("taskDetailModal.html")) {
-    renderDetail();
+    if (localStorage.getItem("email") == null) {
+      window.location = "./sign_in.html";
+    } else {
+      renderDetail();
+    }
   } else if (path.includes("labels.html")) {
     renderLabels();
   } else if (path.includes("closedBoard.html")) {
     if (localStorage.getItem("email") == null) {
-      window.location="./sign_in.html"
+      window.location = "./sign_in.html";
     } else {
       closeBoardRender();
     }
@@ -2286,7 +2260,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (localStorage.getItem("email") == null) {
       window.location = "./sign_in.html";
     } else {
-      render()
+      render();
     }
   } else if (path.includes("addListToDo.html")) {
     if (localStorage.getItem("email") == null) {
@@ -2296,7 +2270,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (localStorage.getItem("email") == null) {
       window.location = "./sign_in.html";
     }
-  } else if (path.includes("createNewBoard.html")) {
+  } else if (path.includes("creatNewBoard.html")) {
     if (localStorage.getItem("email") == null) {
       window.location = "./sign_in.html";
     }
@@ -2313,10 +2287,6 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location = "./sign_in.html";
     }
   } else if (path.includes("filter.html")) {
-    if (localStorage.getItem("email") == null) {
-      window.location = "./sign_in.html";
-    }
-  } else if (path.includes("labels.html")) {
     if (localStorage.getItem("email") == null) {
       window.location = "./sign_in.html";
     }
