@@ -23,7 +23,6 @@ let colorIcon = document.querySelectorAll(".itemLabelCreate .fa-circle-check");
 for (let i = 0; i < colorItems.length; i++) {
   colorItems[i].addEventListener("click", function () {
     backGroundColorIndexLabel = i;
-    
 
     for (let j = 0; j < colorIcon.length; j++) {
       colorIcon[j].style.display = i === j ? "block" : "none";
@@ -31,10 +30,8 @@ for (let i = 0; i < colorItems.length; i++) {
   });
 }
 
-
 function saveUsers(users) {
   localStorage.setItem("users", JSON.stringify(users));
-  
 }
 
 function signUp() {
@@ -233,7 +230,7 @@ function openEditLabel(index) {
 }
 function deleteLabel() {
   let index = localStorage.getItem("labelIndex");
-  
+
   let labelArr = JSON.parse(localStorage.getItem("labelArr")) || [];
   labelArr.splice(index, 1);
   localStorage.setItem("labelArr", JSON.stringify(labelArr));
@@ -242,7 +239,6 @@ function deleteLabel() {
 
 function editLabel() {
   let index = localStorage.getItem("labelIndex");
-  
 
   const labelColors = [
     "#baf3db",
@@ -299,7 +295,6 @@ function renderLabels() {
   }
 
   labelsList.innerHTML = labelStr;
-  
 
   let task = boards[boardIndex].lists[listIndex].tasks[taskIndex];
   if (task.tag.length === 1) {
@@ -320,10 +315,9 @@ function renderLabels() {
             document.getElementById(`checkBoxLabel${j}`).checked = false;
           }
         }
-        
+
         localStorage.setItem("labelTemp", JSON.stringify(labelArr[i]));
       } else {
-        
         localStorage.setItem("labelTemp", 0);
       }
     });
@@ -501,7 +495,6 @@ function createNewBoard() {
   window.location = "./creatNewBoard.html";
 }
 function openBoard(index) {
-  
   localStorage.setItem("boardIndex", index);
   window.location = "./board.html";
 }
@@ -565,7 +558,9 @@ function boardRender() {
         }
         <div class="taskList1">
           <ul id="listToDo${i}"></ul>
-          <div id="addToDoItem${i}" class=" hideAdd ${isClosed ? "hideAdd" : ""}">
+          <div id="addToDoItem${i}" class=" hideAdd ${
+      isClosed ? "hideAdd" : ""
+    }">
             <input class="addItemText" id="textAddToDo${i}" type="text" />
             <button class="buttonAddTask" onclick="buttonAddTodo(${i})">Add</button>
             <p id="taskNotice${i}" class="taskNotice hideAdd">😭 Task cannot be empty!</p>
@@ -589,7 +584,6 @@ function boardRender() {
         </a>
       </div>`;
 
-  // Render các task
   for (let i = 0; i < currentBoard.lists.length; i++) {
     for (let j = 0; j < currentBoard.lists[i].tasks.length; j++) {
       document.getElementById(`listToDo${i}`).innerHTML += `
@@ -603,7 +597,6 @@ function boardRender() {
     }
   }
 
-  // Hiện icon task đã hoàn thành
   for (let i = 0; i < currentBoard.lists.length; i++) {
     for (let j = 0; j < currentBoard.lists[i].tasks.length; j++) {
       if (currentBoard.lists[i].tasks[j].status === "complete") {
@@ -670,7 +663,6 @@ function saveTitle(index) {
   const boardIndex = localStorage.getItem("boardIndex");
   let value = document.getElementById(`editTitle${index}`).value;
 
-  
   if (value.trim().length == 0) {
     document.getElementById(`editNotice${index}`).classList.remove("hideAdd");
   } else {
@@ -737,14 +729,13 @@ function edit(index) {
 
   const boardIndex = localStorage.getItem("boardIndex");
   let value = document.getElementById(`editTitle${index}`).value;
-  
+
   let edit = document.getElementById(`editTitle${index}`);
   edit.classList.remove("hideAdd");
   document.getElementById(`menuBoard${index}`).classList.toggle("hideAdd");
   document.getElementById(`titleSave${index}`).classList.toggle("hideAdd");
   document.getElementById(`editTitle${index}`).value =
     boards[boardIndex].lists[index].title;
-  
 }
 
 function renderDetail() {
@@ -830,10 +821,8 @@ function renderDetail() {
       `
     <option value="${boards[boardIndex].lists[listIndex].title}">${boards[boardIndex].lists[listIndex].title}</option>
     ` + moveTaskStr;
-
   }
 }
-/* renderDetail(); */
 
 function complete() {
   let listIndex = localStorage.getItem("listIndex");
@@ -893,7 +882,6 @@ function complete() {
   const boardIndex = localStorage.getItem("boardIndex");
   document.getElementById("checkOn").classList.add("hide");
   boards[boardIndex].lists[listIndex].tasks[taskIndex].status = "pending";
-
 }
 function pending() {
   let listIndex = localStorage.getItem("listIndex");
@@ -952,14 +940,12 @@ function pending() {
   const boardIndex = localStorage.getItem("boardIndex");
   document.getElementById("checkOn").classList.remove("hide");
   boards[boardIndex].lists[listIndex].tasks[taskIndex].status = "complete";
-
-
 }
 
 function saveEditDetail() {
   let listIndex = localStorage.getItem("listIndex");
   let taskIndex = localStorage.getItem("taskIndex");
-  
+
   let users = JSON.parse(localStorage.getItem("users")) || [
     {
       id: 1,
@@ -1015,11 +1001,9 @@ function saveEditDetail() {
   let check = document.getElementById("checkOn").classList;
 
   if (check.contains("hide")) {
-    
     boards[boardIndex].lists[listIndex].tasks[taskIndex].status = "pending";
     saveUsers(users);
   } else {
-    
     boards[boardIndex].lists[listIndex].tasks[taskIndex].status = "complete";
     saveUsers(users);
   }
@@ -1028,7 +1012,6 @@ function saveEditDetail() {
   let doc = parser.parseFromString(htmlContent, "text/html");
   let description = doc.body.textContent || "";
 
-  
   boards[boardIndex].lists[listIndex].tasks[taskIndex].description =
     description;
   saveUsers(users);
@@ -1037,20 +1020,15 @@ function saveEditDetail() {
   let newIndex = boards[boardIndex].lists.findIndex(
     (item) => item.title == position
   );
-  
+
   let tempTask = boards[boardIndex].lists[listIndex].tasks[taskIndex];
-  
 
   boards[boardIndex].lists[newIndex].tasks.push(tempTask);
-  
+
   boards[boardIndex].lists[listIndex].tasks.splice(taskIndex, 1);
   let label = JSON.parse(localStorage.getItem("labelTemp"));
-  
 
   if (label != 0) {
-    
-
-  
     if (tempTask.tag.length == 1) {
       tempTask.tag.splice(0, 1, label);
     } else if (tempTask.tag.length == 0) {
@@ -1060,15 +1038,9 @@ function saveEditDetail() {
     if (boards[boardIndex].lists[listIndex].tasks[taskIndex].tag.length > 0) {
       tempTask.tag.splice(0, 1);
     }
-
   }
 
   let dateFilter = localStorage.getItem("dateFilter");
-  
-  
-
-
-  
 
   saveUsers(users);
 
@@ -1076,7 +1048,6 @@ function saveEditDetail() {
 }
 
 function openBoardDetail(index) {
-  
   localStorage.setItem("listIndex", index);
   document.getElementById(`menuBoard${index}`).classList.toggle("hideAdd");
 }
@@ -1090,7 +1061,7 @@ function openDetailTask(listIndex, taskIndex) {
 function deleteTask() {
   let listIndex = localStorage.getItem("listIndex");
   let taskIndex = localStorage.getItem("taskIndex");
-  
+
   let users = JSON.parse(localStorage.getItem("users")) || [
     {
       id: 1,
@@ -1143,16 +1114,13 @@ function deleteTask() {
   let boards = user.boards;
 
   const boardIndex = localStorage.getItem("boardIndex");
-  
 
   if (boards[boardIndex].lists[listIndex].tasks.length > 0) {
     boards[boardIndex].lists[listIndex].tasks.splice(taskIndex, 1);
     saveUsers(users);
     window.location = "./board.html";
   } else if (boards[boardIndex].lists[listIndex].tasks.length == 0) {
-    
   }
-  
 }
 function backLabel() {
   window.location = "./labels.html";
@@ -1164,7 +1132,7 @@ function nextCreateLabel() {
 
 function deleteList() {
   let index = localStorage.getItem("listIndex");
-  
+
   let users = JSON.parse(localStorage.getItem("users")) || [
     {
       id: 1,
@@ -1291,7 +1259,6 @@ function addNewList() {
     boards[boardIndex].lists.push(newList);
     saveUsers(users);
 
-    
     window.location = "./board.html";
   }
 }
@@ -1352,8 +1319,6 @@ function buttonAddTodo(index) {
   let value = document.getElementById(`textAddToDo${index}`).value;
 
   if (value.trim().length == 0) {
-    
-
     document.getElementById(`taskNotice${index}`).classList.remove("hideAdd");
   } else if (value.trim().length != 0) {
     document.getElementById(`taskNotice${index}`).classList.add("hideAdd");
@@ -1371,8 +1336,6 @@ function buttonAddTodo(index) {
 }
 
 function addToDo(index) {
-  
-
   event.preventDefault();
   let addToDoItem = document.getElementById(`addToDoItem${index}`);
   addToDoItem.classList.toggle("hideAdd");
@@ -1429,19 +1392,14 @@ function starredBoard(index) {
     return;
   }
   let boards = user.boards;
-  
-  
 
   if (boards[index].is_starred == false) {
-    
     boards[index].is_starred = true;
-    
 
     saveUsers(users);
   } else if (boards[index].is_starred == true) {
     boards[index].is_starred = false;
     saveUsers(users);
-    
   }
   boardRender();
 }
@@ -1469,14 +1427,9 @@ function description() {
 }
 
 function openEditBoard(index) {
-  
-
-  
   localStorage.setItem("editBoardIndex", index);
 }
 let indexEditBoard = localStorage.getItem("editBoardIndex");
-
-
 
 let backGroundImageIndex = 0;
 let backGroundColorIndex = -1;
@@ -1486,10 +1439,7 @@ for (let i = 0; i < img.length; i++) {
   img[i].addEventListener("click", function () {
     backGroundImageIndex = i;
     backGroundColorIndex = -1;
-    
-    
 
-    
     for (let j = 0; j < imgIcons.length; j++) {
       imgIcons[j].style.display = i === j ? "block" : "none";
     }
@@ -1503,7 +1453,7 @@ let colorIcons = document.querySelectorAll(".color .fa-circle-check");
 for (let i = 0; i < color.length; i++) {
   color[i].addEventListener("click", function () {
     backGroundColorIndex = i;
-    
+
     for (let j = 0; j < colorIcons.length; j++) {
       colorIcons[j].style.display = i === j ? "block" : "none";
     }
@@ -1564,7 +1514,7 @@ function UpdateBoard() {
     return;
   }
   let boards = user.boards;
-  
+
   let value = document.getElementById("titleEdit").value.trim();
   document.getElementById("titleEdit").value = boards[indexEditBoard].title;
   if (value.length == 0) {
@@ -1573,29 +1523,26 @@ function UpdateBoard() {
     Title can not be empty
     `;
   } else {
-    
     let notice = document.getElementById("createNewBoardNotice");
     notice.innerHTML = `
     👋 Please provide a valid board title.
     `;
 
-    
     if (backGroundColorIndex == -1) {
       boards[indexEditBoard].title = value;
       boards[indexEditBoard].backdrop = `../assets/image/backgroundCreate${
         backGroundImageIndex + 1
       }.jpeg`;
-      
+
       saveUsers(users);
     }
     if (backGroundColorIndex >= 0) {
       boards[indexEditBoard].title = value;
       boards[indexEditBoard].backdrop = `color${backGroundColorIndex + 1}`;
-      
+
       saveUsers(users);
     }
 
-    
     saveUsers(users);
     window.location = "./dashBoard.html";
   }
@@ -1660,7 +1607,6 @@ function NewBoard() {
     Title can not be empty
     `;
   } else {
-    
     let notice = document.getElementById("createNewBoardNotice");
     notice.innerHTML = `
     👋 Please provide a valid board title.
@@ -1692,11 +1638,8 @@ function NewBoard() {
       };
       boards.push(newBoard);
       saveUsers(users);
-      
     }
-    
-    
-    /*  boards.splice(0, 1); */
+
     window.location = "./dashBoard.html";
   }
 }
@@ -1752,7 +1695,7 @@ function deleteBoard() {
     return;
   }
   let boards = user.boards;
-  
+
   boards.splice(indexEditBoard, 1);
   saveUsers(users);
 
@@ -1762,7 +1705,6 @@ function deleteBoard() {
 function render(page = currentPage, page2 = currentPage2) {
   currentPage = page;
   currentPage2 = page2;
-  
 
   let users = JSON.parse(localStorage.getItem("users")) || [
     {
@@ -1810,7 +1752,7 @@ function render(page = currentPage, page2 = currentPage2) {
   ];
 
   let email = localStorage.getItem("email");
-  
+
   let user = users.find((item) => item.email === email);
   if (!user) {
     return;
@@ -1830,12 +1772,6 @@ function render(page = currentPage, page2 = currentPage2) {
 
   let start2 = (page2 - 1) * 4;
   let end2 = page2 * 4;
-
-  
-  
-  
-  
-  
 
   let buttonPage = document.getElementById("pageDivide1");
   let strPage1 = ``;
@@ -1921,7 +1857,6 @@ function render(page = currentPage, page2 = currentPage2) {
   for (let i = 0; i < paginatedStarredBoards.length; i++) {
     let board = paginatedStarredBoards[i];
     if (boards[i].backdrop.includes("color")) {
-     
       strDashBoardList2 += `
         <div onclick="openBoard(${i})" id="dashBoardItem" class="item dashBoardItem ${boards[i].backdrop}">
               <p>${boards[i].title}</p>
@@ -1933,8 +1868,6 @@ function render(page = currentPage, page2 = currentPage2) {
             </div>
           `;
     } else {
-
-      
       strDashBoardList2 += `
         <div onclick="openBoard(${i})" id="dashBoardItem" class="item dashBoardItem">
           <img src="${boards[i].backdrop}" />
@@ -1956,12 +1889,9 @@ function render(page = currentPage, page2 = currentPage2) {
   document.getElementById(`page2${page2}`).style.color = "white";
 
   let boardIndex = localStorage.getItem("boardIndex");
-  
 }
 
 function closeBoardRender() {
-  
-
   let users = JSON.parse(localStorage.getItem("users")) || [
     {
       id: 1,
@@ -2008,12 +1938,11 @@ function closeBoardRender() {
   ];
 
   let email = localStorage.getItem("email");
-  
+
   let user = users.find((item) => item.email === email);
   if (!user) {
     return;
   }
-  
 
   let boards = user.boards;
   let str = ``;
@@ -2045,19 +1974,16 @@ function closeBoardRender() {
             </div>
           `;
       }
-      
     }
     document.getElementById("dashBoardList3").innerHTML = str;
   }
 }
 
 function changePage(page) {
-  
   render(page, currentPage2);
 }
 
 function changePage2(page2) {
-  
   render(currentPage, page2);
 }
 
@@ -2090,7 +2016,6 @@ function openFilter() {
 }
 
 function closeThisBoard() {
-  
   let users = JSON.parse(localStorage.getItem("users")) || [
     {
       id: 1,
@@ -2143,35 +2068,32 @@ function closeThisBoard() {
   let boards = user.boards;
 
   let boardIndex = localStorage.getItem("boardIndex");
-  
+
   boards[boardIndex].status = "close";
   saveUsers(users);
   location.reload();
 }
 
-function dateTime() {
-  
-}
+function dateTime() {}
 
 function selectDate(day) {
-  const formattedDate = `${day}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+  const formattedDate = `${day}/${
+    currentDate.getMonth() + 1
+  }/${currentDate.getFullYear()}`;
 
   if (startDateCheckbox.checked) {
     selectedDateInput.value = formattedDate;
     dueDateCheckbox.checked = false;
     dueDateInput.value = "";
     dueDateInput.disabled = true;
-    
+
     localStorage.setItem("dateFilter", formattedDate);
-    
   } else if (dueDateCheckbox.checked) {
     dueDateInput.value = formattedDate;
     startDateCheckbox.checked = false;
     selectedDateInput.value = "";
-    
+
     localStorage.setItem("dateFilter", formattedDate);
-
-
   }
 
   document
@@ -2240,10 +2162,7 @@ function filterRender() {
   let list4 = document.getElementById("filterLabels");
   let str = ``;
   for (let j = 0; j < boards[boardIndex].lists.length; j++) {
-    
-
     for (let i = 0; i < boards[boardIndex].lists[j].tasks.length; i++) {
-      
       if (boards[boardIndex].lists[j].tasks[i].tag.length == 1) {
         str += `
             <div style="background-color:${boards[boardIndex].lists[j].tasks[i].tag[0].color};" class="label1 label"><input class="checkbox" type="checkbox"></div>
@@ -2255,7 +2174,6 @@ function filterRender() {
   list4.innerHTML = str;
 }
 function signOut() {
-  
   localStorage.removeItem("email");
   setTimeout(() => {
     window.location = "./sign_in.html";
